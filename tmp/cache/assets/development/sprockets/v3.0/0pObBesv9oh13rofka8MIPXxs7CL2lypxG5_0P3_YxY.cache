@@ -1,0 +1,13 @@
+I"ç(function() {
+  this.Users = React.createClass({
+    render: function() {
+      return React.DOM.div({
+        className: 'records'
+      }, React.DOM.h2({
+        className: 'title'
+      }, 'Users'));
+    }
+  });
+
+}).call(this);
+:ET
