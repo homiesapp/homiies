@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users do
       resources :events
       resources :invitations, except: [:edit, :update]
+      resources :friendships, only: [:show, :index]
     end
   end
 
