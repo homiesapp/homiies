@@ -22,5 +22,8 @@ module Homiies
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # use normal stack and not the api stack
+    config.api_only = false
   end
 end
