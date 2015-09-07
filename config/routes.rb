@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users do
       resources :events
-      resources :invitations
+      resources :invitations, except: [:edit, :update]
     end
   end
 
