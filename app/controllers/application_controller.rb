@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   # include ActionController::Serialization # enable ActiveModelSerializers
+  include ActionController::MimeResponds
 
   before_filter :cors_preflight_check
   after_filter :cors_set_access_control_headers

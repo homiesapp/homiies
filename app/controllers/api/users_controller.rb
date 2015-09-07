@@ -6,9 +6,11 @@ module Api
     # GET /users.json
     def index
       @users = User.all
-
-      # respond_to do |format|
-      render json: @users, status: 200
+  
+      # respond_to :json
+      respond_to do |format|
+        format.json { render json: @users, status: 200 }
+      end
     end
 
     # GET /users/1

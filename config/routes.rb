@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   # resources :users
   root 'api/users#index'
 
-  namespace :api do
+  namespace :api, defaults: { format: 'json' } do
+
     resources :users do
       resources :events
       resources :invitations, except: [:edit, :update]
