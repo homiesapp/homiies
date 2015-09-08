@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  # include ActionController::Serialization # enable ActiveModelSerializers
   include ActionController::MimeResponds
 
   before_filter :cors_preflight_check

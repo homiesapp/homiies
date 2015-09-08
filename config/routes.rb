@@ -2,12 +2,10 @@ Rails.application.routes.draw do
   # resources :users
   root 'api/users#index'
 
-  namespace :api, path: '/', defaults: { format: 'json' } do
-    resources :users do
-      resources :events
-      resources :invitations, except: [:edit, :update]
-      resources :friendships, only: [:show, :index]
-    end
+  resources :users do
+    resources :events
+    resources :invitations, except: [:edit, :update]
+    resources :friendships, only: [:show, :index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
