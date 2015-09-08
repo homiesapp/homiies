@@ -1,4 +1,4 @@
-module Api
+module API
   class InvitationsController < ApplicationController
     before_action :set_invitation, only: [:show, :edit, :update, :destroy]
 
