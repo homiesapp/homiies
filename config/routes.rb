@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # resources :users
   root 'api/users#index'
 
-  namespace :api, path: '/', constraints: { subdomain: 'api' }, defaults: { format: 'json' } do
+  namespace :api, path: '/', defaults: { format: 'json' } do
     resources :users do
       resources :events
       resources :invitations, except: [:edit, :update]

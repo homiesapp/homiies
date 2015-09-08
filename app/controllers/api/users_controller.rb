@@ -6,21 +6,22 @@ module API
     # GET /users.json
     def index
       @users = User.all
-  
+    
+      render json: @users
       # respond_to :json
-      respond_to do |format|
-        format.json { render json: @users, status: 200 }
-      end
+      # respond_to do |format|
+      #   format.json { render json: @users, status: 200 }
+      # end
     end
 
     # GET /users/1
     # GET /users/1.json
     def show
       @user = User.find(params[:id])
-
-      respond_to do |format|
-        format.json { render json: @user.to_json(:include => [:events, :invitations, :friendships, :homiies]), status: 200 }
-      end
+      render json: @user.to_json(:include => [:events, :invitations, :friendships, :homiies])
+      # respond_to do |format|
+      #   format.json { render json: @user.to_json(:include => [:events, :invitations, :friendships, :homiies]), status: 200 }
+      # end
     end
 
     # GET /users/new
