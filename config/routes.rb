@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  resources :invitations
-  resources :events
-  resources :users
-  root 'users#index'
+  # resources :users
+  root 'api/users#index'
+
+  constraints subdomain: 'api' do
+    namespace :api, path: '/', defaults: { format: 'json' } do
+
+      resources :users do
+        resources :events
+        resources :invitations, except: [:edit, :update]
+        resources :friendships, only: [:show, :index]
+      end
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
