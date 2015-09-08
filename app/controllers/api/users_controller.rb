@@ -16,6 +16,11 @@ module Api
     # GET /users/1
     # GET /users/1.json
     def show
+      @user = User.find(params[:id])
+
+      respond_to do |format|
+        format.json { render json: @user.to_json(:include => [:events, :invitations, :friendships, :homiies]), status: 200 }
+      end
     end
 
     # GET /users/new
