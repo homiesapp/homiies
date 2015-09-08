@@ -1,11 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+andrea:
+  id: 1
   username: andreacab
   email: andrea.cabralb@gmail.com	
   fb_token: 34231ih4234niasdfajshb23
 
-two:
+evert:
+  id: 2
   username: evertr
   email: evert@schmilblick.com
   fb_token: safhiashi234i23h4972314e
+
+alex:
+  id: 3
+  username: alexsanudo
+  email: alex@gmail.com
+  fb_token: 2489571349ihirwequrhiu34hi
+
+tim:
+  id: 4
+  username: timtom
+  email: tim@gmail.com
+  fb_token: 940581345018blaksfwerqw98723

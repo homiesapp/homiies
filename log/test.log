@@ -769,3 +769,1213 @@ Processing by UsersController#index as HTML
   [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
 Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (1.3ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:43:33', '2015-09-08 18:43:33', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:43:33', '2015-09-08 18:43:33', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:43:33', '2015-09-08 18:43:33', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:43:33', '2015-09-08 18:43:33', 298486374)[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:43:33', '2015-09-08 18:43:33', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:43:33', '2015-09-08 18:43:33', 298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 18:43:33', '2015-09-08 18:43:33', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 18:43:33', '2015-09-08 18:43:33', 298486374)[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------
+EventsControllerTest: test_should_destroy_event
+-----------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+EventsControllerTest: test_should_show_event
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+EventsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------
+EventsControllerTest: test_should_create_event
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+EventsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------
+EventsControllerTest: test_should_update_event
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+EventsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+InvitationsControllerTest: test_should_update_invitation
+--------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------
+InvitationsControllerTest: test_should_get_index
+------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------
+InvitationsControllerTest: test_should_get_new
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+InvitationsControllerTest: test_should_destroy_invitation
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+InvitationsControllerTest: test_should_create_invitation
+--------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------------
+InvitationsControllerTest: test_should_show_invitation
+------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------
+InvitationsControllerTest: test_should_get_edit
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Completed 200 OK in 4ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "andreacab"], ["email", "andrea.cabralb@gmail.com"], ["created_at", "2015-09-08 18:43:33.608863"], ["updated_at", "2015-09-08 18:43:33.608863"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 10ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mEvent Load (0.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mInvitation Load (0.3ms)[0m  SELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+Completed 200 OK in 70ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:45:22', '2015-09-08 18:45:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:45:22', '2015-09-08 18:45:22', 298486374)
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:45:22', '2015-09-08 18:45:22', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:45:22', '2015-09-08 18:45:22', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:45:22', '2015-09-08 18:45:22', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:45:22', '2015-09-08 18:45:22', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 18:45:22', '2015-09-08 18:45:22', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 18:45:22', '2015-09-08 18:45:22', 298486374)[0m
+  [1m[35m (8.6ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Completed 200 OK in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}}
+  [1m[35m (0.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "andreacab"], ["email", "andrea.cabralb@gmail.com"], ["created_at", "2015-09-08 18:45:22.414656"], ["updated_at", "2015-09-08 18:45:22.414656"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 10ms (ActiveRecord: 1.6ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:45:46', '2015-09-08 18:45:46', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:45:46', '2015-09-08 18:45:46', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:45:46', '2015-09-08 18:45:46', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:45:46', '2015-09-08 18:45:46', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:45:46', '2015-09-08 18:45:46', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:45:46', '2015-09-08 18:45:46', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 18:45:46', '2015-09-08 18:45:46', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 18:45:46', '2015-09-08 18:45:46', 298486374)[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}, "id"=>"980190962"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 15ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.7ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Completed 200 OK in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users
+Completed 302 Found in 3ms (ActiveRecord: 1.2ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "andreacab"], ["email", "andrea.cabralb@gmail.com"], ["created_at", "2015-09-08 18:45:46.503837"], ["updated_at", "2015-09-08 18:45:46.503837"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:46:20', '2015-09-08 18:46:20', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:46:20', '2015-09-08 18:46:20', 298486374)
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:46:20', '2015-09-08 18:46:20', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:46:20', '2015-09-08 18:46:20', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:46:20', '2015-09-08 18:46:20', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:46:20', '2015-09-08 18:46:20', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 18:46:20', '2015-09-08 18:46:20', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 18:46:20', '2015-09-08 18:46:20', 298486374)[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.7ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.5ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.4ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 53ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Completed 200 OK in 1ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "andreacab"], ["email", "andrea.cabralb@gmail.com"], ["created_at", "2015-09-08 18:46:20.960667"], ["updated_at", "2015-09-08 18:46:20.960667"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:46:31', '2015-09-08 18:46:31', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:46:31', '2015-09-08 18:46:31', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:46:31', '2015-09-08 18:46:31', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:46:31', '2015-09-08 18:46:31', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:46:31', '2015-09-08 18:46:31', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:46:31', '2015-09-08 18:46:31', 298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 18:46:31', '2015-09-08 18:46:31', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 18:46:31', '2015-09-08 18:46:31', 298486374)[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}, "id"=>"980190962"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 13ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Completed 201 Created in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Completed 200 OK in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "andreacab"], ["email", "andrea.cabralb@gmail.com"], ["created_at", "2015-09-08 18:46:31.310411"], ["updated_at", "2015-09-08 18:46:31.310411"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mEvent Load (0.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mInvitation Load (0.3ms)[0m  SELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+Completed 200 OK in 60ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:47:00', '2015-09-08 18:47:00', 980190962)[0m
+  [1m[35mFixture Insert (9.4ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2015-09-03 12:53:19.000000', 'MyText', 'MyString', 1.5, 1.5, 'MyString', '2015-09-08 18:47:00', '2015-09-08 18:47:00', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:47:00', '2015-09-08 18:47:00', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 1, '2015-09-08 18:47:00', '2015-09-08 18:47:00', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:47:00', '2015-09-08 18:47:00', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (NULL, NULL, NULL, 'f', '2015-09-08 18:47:00', '2015-09-08 18:47:00', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 18:47:00', '2015-09-08 18:47:00', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 18:47:00', '2015-09-08 18:47:00', 298486374)[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["username", "andreacab"], ["email", "andrea.cabralb@gmail.com"], ["created_at", "2015-09-08 18:47:00.900866"], ["updated_at", "2015-09-08 18:47:00.900866"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Completed 200 OK in 3ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"email"=>"andrea.cabralb@gmail.com", "username"=>"andreacab"}, "id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mEvent Load (1.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mInvitation Load (0.3ms)[0m  SELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mFriendship Load (0.3ms)[0m  [1mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+Completed 200 OK in 45ms (Views: 0.1ms | ActiveRecord: 3.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#index as HTML
+Completed 406 Not Acceptable in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (1.2ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:05:35', '2015-09-08 19:05:35', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:05:35', '2015-09-08 19:05:35', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 3, 2, 'f', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 298486374)
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 298486374)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('alex', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 113629430)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('tim', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:05:35', '2015-09-08 19:05:35', 281110143)[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.6ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.4ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 59ms (Views: 0.1ms | ActiveRecord: 2.9ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 406 Not Acceptable in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 298486374)
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:06:21', '2015-09-08 19:06:21', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:06:21', '2015-09-08 19:06:21', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 3, 2, 'f', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 298486374)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('alex', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 113629430)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('tim', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:06:21', '2015-09-08 19:06:21', 281110143)[0m
+  [1m[35m (8.4ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.8ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 980190962)[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:13:17', '2015-09-08 19:13:17', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:13:17', '2015-09-08 19:13:17', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 3, 2, 'f', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 298486374)
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 298486374)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('alex', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 113629430)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('tim', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:13:17', '2015-09-08 19:13:17', 281110143)[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 49ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.9ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:14:05', '2015-09-08 19:14:05', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:14:05', '2015-09-08 19:14:05', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 3, 2, 'f', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 298486374)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('alex', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 113629430)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('tim', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:14:05', '2015-09-08 19:14:05', 281110143)[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.6ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 61ms (Views: 0.1ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:14:18', '2015-09-08 19:14:18', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:14:18', '2015-09-08 19:14:18', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 3, 2, 'f', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 298486374)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('alex', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 113629430)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('tim', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:14:18', '2015-09-08 19:14:18', 281110143)[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.6ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.4ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:14:41', '2015-09-08 19:14:41', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:14:41', '2015-09-08 19:14:41', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 3, 2, 'f', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 298486374)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('alex', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 113629430)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('tim', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:14:41', '2015-09-08 19:14:41', 281110143)[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (1.9ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 53ms (Views: 0.1ms | ActiveRecord: 3.7ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:15:08', '2015-09-08 19:15:08', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:15:08', '2015-09-08 19:15:08', 298486374)[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 3, 2, 'f', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 298486374)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('alex', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 113629430)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "created_at", "updated_at", "id") VALUES ('tim', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:15:08', '2015-09-08 19:15:08', 281110143)[0m
+  [1m[35m (8.6ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE "events"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mInvitation Load (0.3ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = $1[0m  [["user_id", 980190962]]
+  [1m[35mFriendship Load (0.3ms)[0m  SELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1  [["user_id", 980190962]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 980190962]]
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:25:31', '2015-09-08 19:25:31', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (2, 3, 2, 'f', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (3.2ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "friendships", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 'one', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)
+PG::UndefinedColumn: ERROR:  column "friendships" of relation "users" does not exist
+LINE 1: ...RT INTO "users" ("username", "email", "fb_token", "friendshi...
+                                                             ^
+: INSERT INTO "users" ("username", "email", "fb_token", "friendships", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 'one', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "friendships"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:25:31', '2015-09-08 19:25:31', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "invitations"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (1, 2, 1, 't', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at", "id") VALUES (2, 3, 2, 'f', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "friendships", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 'one', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)[0m
+PG::UndefinedColumn: ERROR:  column "friendships" of relation "users" does not exist
+LINE 1: ...RT INTO "users" ("username", "email", "fb_token", "friendshi...
+                                                             ^
+: INSERT INTO "users" ("username", "email", "fb_token", "friendships", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 'one', '2015-09-08 19:25:31', '2015-09-08 19:25:31', 980190962)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:27:03', '2015-09-08 19:27:03', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:27:03', '2015-09-08 19:27:03')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:27:03', '2015-09-08 19:27:03')
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.9ms)[0m  INSERT INTO "users" ("username", "email", "fb_token", "invitation_id", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 1, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)
+PG::UndefinedColumn: ERROR:  column "invitation_id" of relation "users" does not exist
+LINE 1: ...RT INTO "users" ("username", "email", "fb_token", "invitatio...
+                                                             ^
+: INSERT INTO "users" ("username", "email", "fb_token", "invitation_id", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 1, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:27:03', '2015-09-08 19:27:03', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "friendships"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "invitations"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:27:03', '2015-09-08 19:27:03')
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:27:03', '2015-09-08 19:27:03')[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "users" ("username", "email", "fb_token", "invitation_id", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 1, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)[0m
+PG::UndefinedColumn: ERROR:  column "invitation_id" of relation "users" does not exist
+LINE 1: ...RT INTO "users" ("username", "email", "fb_token", "invitatio...
+                                                             ^
+: INSERT INTO "users" ("username", "email", "fb_token", "invitation_id", "created_at", "updated_at", "id") VALUES ('andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', 1, '2015-09-08 19:27:03', '2015-09-08 19:27:03', 980190962)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.8ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:43:48', '2015-09-08 19:43:48', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:43:48', '2015-09-08 19:43:48', 298486374)
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:43:48', '2015-09-08 19:43:48', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:43:48', '2015-09-08 19:43:48', 298486374)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:43:48', '2015-09-08 19:43:48')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:43:48', '2015-09-08 19:43:48')
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (1, 'andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:43:48', '2015-09-08 19:43:48')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (2, 'evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:43:48', '2015-09-08 19:43:48')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (3, 'alexsanudo', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:43:48', '2015-09-08 19:43:48')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (4, 'timtom', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:43:48', '2015-09-08 19:43:48')[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "users_invitations"
+PG::UndefinedTable: ERROR:  relation "users_invitations" does not exist
+LINE 1: DELETE FROM "users_invitations"
+                    ^
+: DELETE FROM "users_invitations"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:43:48', '2015-09-08 19:43:48', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:43:48', '2015-09-08 19:43:48', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "friendships"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:43:48', '2015-09-08 19:43:48', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:43:48', '2015-09-08 19:43:48', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "invitations"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:43:48', '2015-09-08 19:43:48')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:43:48', '2015-09-08 19:43:48')[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (1, 'andreacab', 'andrea.cabralb@gmail.com', '34231ih4234niasdfajshb23', '2015-09-08 19:43:48', '2015-09-08 19:43:48')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (2, 'evertr', 'evert@schmilblick.com', 'safhiashi234i23h4972314e', '2015-09-08 19:43:48', '2015-09-08 19:43:48')
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (3, 'alexsanudo', 'alex@gmail.com', '2489571349ihirwequrhiu34hi', '2015-09-08 19:43:48', '2015-09-08 19:43:48')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("id", "username", "email", "fb_token", "created_at", "updated_at") VALUES (4, 'timtom', 'tim@gmail.com', '940581345018blaksfwerqw98723', '2015-09-08 19:43:48', '2015-09-08 19:43:48')
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "users_invitations"[0m
+PG::UndefinedTable: ERROR:  relation "users_invitations" does not exist
+LINE 1: DELETE FROM "users_invitations"
+                    ^
+: DELETE FROM "users_invitations"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.8ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:46:27', '2015-09-08 19:46:27', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:46:27', '2015-09-08 19:46:27', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:46:27', '2015-09-08 19:46:27', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:46:27', '2015-09-08 19:46:27', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:46:27', '2015-09-08 19:46:27')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:46:27', '2015-09-08 19:46:27')
+  [1m[36mFixture Delete (0.8ms)[0m  [1mDELETE FROM "invitations_users"[0m
+PG::UndefinedTable: ERROR:  relation "invitations_users" does not exist
+LINE 1: DELETE FROM "invitations_users"
+                    ^
+: DELETE FROM "invitations_users"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:46:27', '2015-09-08 19:46:27', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:46:27', '2015-09-08 19:46:27', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:46:27', '2015-09-08 19:46:27', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:46:27', '2015-09-08 19:46:27', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:46:27', '2015-09-08 19:46:27')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:46:27', '2015-09-08 19:46:27')
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "invitations_users"[0m
+PG::UndefinedTable: ERROR:  relation "invitations_users" does not exist
+LINE 1: DELETE FROM "invitations_users"
+                    ^
+: DELETE FROM "invitations_users"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (1.2ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:48:21', '2015-09-08 19:48:21', 980190962)[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:48:21', '2015-09-08 19:48:21', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:48:21', '2015-09-08 19:48:21', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:48:21', '2015-09-08 19:48:21', 298486374)[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:48:21', '2015-09-08 19:48:21')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:48:21', '2015-09-08 19:48:21')
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "invitations_users"[0m
+PG::UndefinedTable: ERROR:  relation "invitations_users" does not exist
+LINE 1: DELETE FROM "invitations_users"
+                    ^
+: DELETE FROM "invitations_users"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "invitations" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Camping in my garden', 'Vancouver', 'Canada', 'west 2nd avenue', 'v6j 1j4', '2015-09-20 12:53:19.000000', 'great opportunity to enjoy the sun', NULL, 49.25, -123.01, 'outdoors', '2015-09-08 19:48:21', '2015-09-08 19:48:21', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "created_at", "updated_at", "id") VALUES ('Tennis in kits', 'Vancouver', 'Canada', 'kits beach', 'V6j 1j4', '2015-10-15 12:53:19.000000', 'A tennis game for fun', NULL, 49.25, -123.01, 'sport', '2015-09-08 19:48:21', '2015-09-08 19:48:21', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "friendships"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 2, '2015-09-08 19:48:21', '2015-09-08 19:48:21', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at", "id") VALUES (1, 3, '2015-09-08 19:48:21', '2015-09-08 19:48:21', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "invitations"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (1, 1, 2, 1, 't', '2015-09-08 19:48:21', '2015-09-08 19:48:21')[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "invitations" ("id", "user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES (2, 2, 3, 2, 'f', '2015-09-08 19:48:21', '2015-09-08 19:48:21')
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "invitations_users"[0m
+PG::UndefinedTable: ERROR:  relation "invitations_users" does not exist
+LINE 1: DELETE FROM "invitations_users"
+                    ^
+: DELETE FROM "invitations_users"
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "events" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "invitations" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m

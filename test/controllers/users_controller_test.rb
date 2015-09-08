@@ -7,7 +7,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
+    assert_response 200
     assert_not_nil assigns(:users)
   end
 
@@ -24,10 +24,12 @@ class UsersControllerTest < ActionController::TestCase
   #   assert_redirected_to user_path(assigns(:user))
   # end
 
-  # test "should show user" do
-  #   get :show, id: @user
-  #   assert_response :success
-  # end
+  test "should show user" do
+    get :show, id: @user
+
+    puts @response.body.inspect
+    assert_response 200
+  end
 
   # test "should get edit" do
   #   get :edit, id: @user
@@ -44,6 +46,6 @@ class UsersControllerTest < ActionController::TestCase
   #     delete :destroy, id: @user
   #   end
 
-    #   assert_redirected_to users_path
-    # end
+  #     assert_redirected_to users_path
+  #   end
 end

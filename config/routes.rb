@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   # resources :users
-  root 'api/users#index'
+  root 'users#index'
 
   resources :users do
     resources :events
     resources :invitations, except: [:edit, :update]
-    resources :friendships, only: [:show, :index]
+    get '/friendships' => 'friendships#homiies', path: 'homiies'
   end
 
+  get '/tweet' => 'users#tweet' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
