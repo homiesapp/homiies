@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  root 'users#index'
+
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:show,:create, :destroy]
+
   # resources :users
-  root 'api/users#index'
+  
+  resources :sessions, only: [:create, :destroy]
 
   resources :users do
     resources :events
