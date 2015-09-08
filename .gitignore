@@ -1,4 +1,4 @@
 node_modules
 .ds_store
 tmp/
-log/test.log
+log/
