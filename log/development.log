@@ -7047,3 +7047,100 @@ Started GET "/" for ::1 at 2015-09-08 14:57:59 -0700
 Processing by UsersController#index as HTML
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
 Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2015-09-08 15:14:33 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 19ms (Views: 5.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-09-08 15:14:41 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQDwd_-o4mOdw-fMIswbheF7ZyEw41Qs6zVqw3Wy5kAVP9EUeQ1AznlKomS5Lsl2pNi1dMSGVhtIr-nLvDWU0G-tMS8j-gaxYXrah8PawqeBsQZX_bHUnxw0HfUeJPgbd4q1jeHlf3t-hzVz_GEsvV25fP-O0DxevgC6GEkaoyId23C3Q3O2_jmElLkRMru5LBGfm-dNLfPY0Hi4lMWMz8KBUH_y8fhrj4vZwJj5Gxgllb3o0pEClciS4YPkdrYJR5TwaoGhvYhGkgP0D0jcC16tPl13FF7-zC4EU-edRCt3uAgeMqVI5kAXxxAyZUCatyo&state=0e7b669938e2536479d45e77855afa2fb3153e5075c051d9" for ::1 at 2015-09-08 15:14:41 -0700
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQDwd_-o4mOdw-fMIswbheF7ZyEw41Qs6zVqw3Wy5kAVP9EUeQ1AznlKomS5Lsl2pNi1dMSGVhtIr-nLvDWU0G-tMS8j-gaxYXrah8PawqeBsQZX_bHUnxw0HfUeJPgbd4q1jeHlf3t-hzVz_GEsvV25fP-O0DxevgC6GEkaoyId23C3Q3O2_jmElLkRMru5LBGfm-dNLfPY0Hi4lMWMz8KBUH_y8fhrj4vZwJj5Gxgllb3o0pEClciS4YPkdrYJR5TwaoGhvYhGkgP0D0jcC16tPl13FF7-zC4EU-edRCt3uAgeMqVI5kAXxxAyZUCatyo", "state"=>"0e7b669938e2536479d45e77855afa2fb3153e5075c051d9", "provider"=>"facebook"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT 1[0m  [["uid", "10153539852291142"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "CAAPQuUDeY70BAFUdTRIJagQUbYpJ1zl5I9DdmJmDef8po6tZC5U8zEFJZAkw6ANKhCnorcZAM6vxZBtL5Qo6b4BZAFDySr99ZArsZBZBw6NKyBlcwUtnZCxmHGYEZBkL5mohEmedq7EV3CoeVMApmT7ZCDZBYYYgZADTASnZBSvsMZCT9T3ZCh4WAQi5N0UiSjdLLINB6GkZD"], ["oauth_expires_at", "2015-11-07 01:24:50.000000"], ["updated_at", "2015-09-08 22:14:42.329162"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2015-09-08 15:14:42 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-09-08 15:15:19 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQBl_LGDtClKphXFQefb1XyPcz9VTbrB5rR-D8mi4wsEZJtNnIICh6iOrmanR5GtIf1CFlvkZzAdT5nmt8MMt6YTmAe2g8FBZx6dvrZlZiNJfAn2N2m0N6-UjlkPMpLK_pcTwUPcb5i8xJottetfwwRSL9_fBdXaTWe3KgjbhXj5Jo2V-6BRd5Hl7360RX0bkdXFoijUqzVW36TFWZhXckQmoDuxzKDkVtqpn8kP_U9xtUkJQ2e6jMDrQfs4RZX5eprXn6lZPgLOSO9NP33-zqj6ewD8q4NnBM2HZyU-V2cZT2Xeuz5HU-RSm4TjmxlZ4yI&state=d0c359229fe91d1c196dfab5c4c3bc656804b5f898d07e9d" for ::1 at 2015-09-08 15:16:53 -0700
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBl_LGDtClKphXFQefb1XyPcz9VTbrB5rR-D8mi4wsEZJtNnIICh6iOrmanR5GtIf1CFlvkZzAdT5nmt8MMt6YTmAe2g8FBZx6dvrZlZiNJfAn2N2m0N6-UjlkPMpLK_pcTwUPcb5i8xJottetfwwRSL9_fBdXaTWe3KgjbhXj5Jo2V-6BRd5Hl7360RX0bkdXFoijUqzVW36TFWZhXckQmoDuxzKDkVtqpn8kP_U9xtUkJQ2e6jMDrQfs4RZX5eprXn6lZPgLOSO9NP33-zqj6ewD8q4NnBM2HZyU-V2cZT2Xeuz5HU-RSm4TjmxlZ4yI", "state"=>"d0c359229fe91d1c196dfab5c4c3bc656804b5f898d07e9d", "provider"=>"facebook"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT 1  [["uid", "10153162461447852"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "uid", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["username", "Andrea Cabral"], ["uid", "10153162461447852"], ["created_at", "2015-09-08 22:16:54.175477"], ["updated_at", "2015-09-08 22:16:54.175477"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "provider" = $1, "oauth_token" = $2, "oauth_expires_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["provider", "facebook"], ["oauth_token", "CAAPQuUDeY70BAGVDKM8K06EpEBfNEemItqIADJyNKxaP2zFYy0W6OV2jlGQRZCbmx5FREr5HKOOZCjHPkQJ752tITHkVUtk10oZAVJZB8nqVPyNMigdnWGZBvfWZAddILSOkKM0HLEDFKq4mn4CZBZAiTiviVVBirQVUXa3QjLg6oQXkYIs2nVD8jZBFymbXZC4LsZD"], ["oauth_expires_at", "2015-11-07 22:16:52.000000"], ["updated_at", "2015-09-08 22:16:54.180666"], ["id", 3]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2015-09-08 15:16:54 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-09-08 15:17:39 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQB_hSWkSK4tu9SecIqjm-FZUPNrinEZ5hflxs049vrs4EnkqjRwP8jSpAE09u42Pg3o5Q-AP5y51VCSlpqIE-EY_pMGpiDhlqQqRfA2wxWe9TE0q10VxrgoxpfjPk53LnzQ14hzZSgcauA7cjyNWalNmMNWZjywxlQtcWIhDuhzZ2gfjjfcwgwJUvApItaYWMwq8IzuxhVV1K1aOUJbRkbMzXDdgxVjHdte29ZIk-JoR7us5bltBfRJDRHsf5GCkaayHDe5IPghmBOs2T1j_g_K5BJFmvMLYbhK-Bc-28j7kgPeuZqyQorMZnbB_qXxOVo&state=67db94094c680f9abb3eefcc108fec7df0a432727e3768b3" for ::1 at 2015-09-08 15:17:39 -0700
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQB_hSWkSK4tu9SecIqjm-FZUPNrinEZ5hflxs049vrs4EnkqjRwP8jSpAE09u42Pg3o5Q-AP5y51VCSlpqIE-EY_pMGpiDhlqQqRfA2wxWe9TE0q10VxrgoxpfjPk53LnzQ14hzZSgcauA7cjyNWalNmMNWZjywxlQtcWIhDuhzZ2gfjjfcwgwJUvApItaYWMwq8IzuxhVV1K1aOUJbRkbMzXDdgxVjHdte29ZIk-JoR7us5bltBfRJDRHsf5GCkaayHDe5IPghmBOs2T1j_g_K5BJFmvMLYbhK-Bc-28j7kgPeuZqyQorMZnbB_qXxOVo", "state"=>"67db94094c680f9abb3eefcc108fec7df0a432727e3768b3", "provider"=>"facebook"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT 1  [["uid", "10153539852291142"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "oauth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["oauth_token", "CAAPQuUDeY70BAI5QxeTF6yv0qVckaarZAA3ZB7e3jYHsu2N59uuRKpzZApFCtfZB8isqYM1F2ir2s4LXpKprjvYXjoRweAirTn38ShSUlNHlZBuL8DWKWByVRbyk6CfWTHj7WrfkMF6F4cliyEnwHXWgHsWuUJLjGMiEI3ghyN2Dz8wMJNbwKyJ1Iui4ZAueMZD"], ["updated_at", "2015-09-08 22:17:40.341055"], ["id", 1]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2015-09-08 15:17:40 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-09-08 15:22:33 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQBc0kQkTJXlWTYTU5TtWaCzoyHSg-r-2MbCP5NQ2TZKqAeQ2aMQdl3CabDO8T4x51ntu9intzEtGYrA86DXfhT4uG9DUAvF2ISwXnP7nWNbl88lqd67nkTqTRUy9_KMZk9SJ5LAGQJCPVb6TWkyQo66JcPCSMCpOZllsaz5knCB_1VNdyXHXYAmKZ_1Z5iKsYO_SYRyz8qDs2tpqyoUnfyXJUsUOJ1ws1u4phPpiXMcLk4PB7VfkcP14AEAL0S9B-c1e7YBByUWW8Gf-gSiKAhGA1DzzBngKr_nS24t66S_TnLh3zS6V0aY_Gouzn7GxPI&state=afa6e2695f2f46dfbd1ce851d7ac946f75bdea8a74700d3b" for ::1 at 2015-09-08 15:22:34 -0700
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBc0kQkTJXlWTYTU5TtWaCzoyHSg-r-2MbCP5NQ2TZKqAeQ2aMQdl3CabDO8T4x51ntu9intzEtGYrA86DXfhT4uG9DUAvF2ISwXnP7nWNbl88lqd67nkTqTRUy9_KMZk9SJ5LAGQJCPVb6TWkyQo66JcPCSMCpOZllsaz5knCB_1VNdyXHXYAmKZ_1Z5iKsYO_SYRyz8qDs2tpqyoUnfyXJUsUOJ1ws1u4phPpiXMcLk4PB7VfkcP14AEAL0S9B-c1e7YBByUWW8Gf-gSiKAhGA1DzzBngKr_nS24t66S_TnLh3zS6V0aY_Gouzn7GxPI", "state"=>"afa6e2695f2f46dfbd1ce851d7ac946f75bdea8a74700d3b", "provider"=>"facebook"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT 1[0m  [["uid", "10153539852291142"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "oauth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["oauth_token", "CAAPQuUDeY70BAJZCgPCRomE0ZCncFOv1PlZBBZAswHVKMZAp2qqvlu4T4FotD7TZAZBJEK5caZCjDLkBjyetocxBBkRgd2j8vvz0gW0JISvVmFCDvAuvl69vkzkBTU7Ivu0WTgWgAp4TuRDIakhhFypMaZAM62E2nfcQ6GHcxgV6pZBovO4NXIvk5DZBZBN7uVIsXigZD"], ["updated_at", "2015-09-08 22:22:49.980229"], ["id", 1]]
+  [1m[35m (2.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 15363ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/" for ::1 at 2015-09-08 15:22:49 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
