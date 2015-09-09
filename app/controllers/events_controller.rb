@@ -4,9 +4,18 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    res = {}
     @user = User.find(params[:user_id])
-    @events = @user.events
-    render json: @events, status: 200
+
+    events_admin = @user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
+    events_pending = Invitation.where(homiie_id: @user.id).where(pending: true).map { |invite| Event.find(invite.event_id) }
+    events_attending = Invitation.where(homiie_id: @user.id).where(attending: true).map { |invite| Event.find(invite.event_id) }
+
+    res[:events_admin] = events_admin
+    res[:events_pending] = events_pending
+    res[:events_attendnig] = events_attending
+
+    render json: res
   end
 
   # GET /events/1
@@ -14,13 +23,13 @@ class EventsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @event = Event.find(params[:id])
+    
     res = {}
     @homiies_attending_event = []
     @homiies_pending_event = []
 
     Invitation.where(event_id: @event.id).each do |invite|
-      binding.pry
-      if invite.attending && ( invite.user_id !=  user.id)
+      if invite.attending
         @homiies_attending_event << User.find(invite.homiie_id)
       elsif invite.pending
         @homiies_pending_event << User.find(invite.homiie_id)
@@ -29,7 +38,7 @@ class EventsController < ApplicationController
 
     res[:event] = @event
     res[:homiies_pending] = @homiies_pending_event
-    res[:homiies_attening] = @homiies_attending_event
+    res[:homiies_attending] = @homiies_attending_event
     render json: res, status: :ok
   end
 

@@ -1,12 +1,5 @@
 class FriendshipsController < ApplicationController
 
-	def index
-		@user = User.find(params[:user_id])
-		@friendships = Friendship.where(user_id: @user.id)
-		@homiies = 
-		render json: @friendships, status: :ok
-	end
-
 	def homiies
 		@user = User.find(params[:user_id])
 		@friendships = Friendship.where(user_id: @user.id)
@@ -18,6 +11,4 @@ class FriendshipsController < ApplicationController
 		
 		render json: @homiies, status: :ok
 	end
-
-
 end

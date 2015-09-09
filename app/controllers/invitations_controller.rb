@@ -3,6 +3,7 @@ class InvitationsController < ApplicationController
 
   # GET /invitations
   # GET /invitations.json
+  # send all the invitations a user has received
   def index
     @user = User.find(params[:user_id])
     @invitations = @user.invitations
