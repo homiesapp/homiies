@@ -7,7 +7,20 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     @graph = Koala::Facebook::API.new(auth.credentials.token)
     user = User.find_by(uid: auth.uid)
-    # @graph.get_connections("me", "taggable_friends")
+    friends  =[]
+    names = []
+    pics = []
+    result = @graph.get_connections("me", "taggable_friends")
+    while result 
+      friends << result
+      result = result.next_page
+    end
+    friends.flatten!
+    friends.length.times do |i|
+      names << friends[i]['name']
+      pics << friends[i]['picture']['data']['url']
+    end
+
     binding.pry
     if !user    
       user = User.create(username: auth.info.name, uid: auth.uid, email: @graph.get_object("me?fields=name,picture,email")['email'])
