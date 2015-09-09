@@ -5,11 +5,12 @@ class User < ActiveRecord::Base
   has_many :homiies, :through => :friendships
 
   def self.from_omniauth(auth)
-
-    binding.pry
+    @graph = Koala::Facebook::API.new(auth.credentials.token)
     user = User.find_by(uid: auth.uid)
+    # @graph.get_connections("me", "taggable_friends")
+    binding.pry
     if !user    
-      user = User.create(username: auth.info.name, uid:auth.uid)
+      user = User.create(username: auth.info.name, uid: auth.uid, email: @graph.get_object("me?fields=name,picture,email")['email'])
     end
     user.provider = auth.provider
     user.oauth_token = auth.credentials.token
@@ -17,6 +18,4 @@ class User < ActiveRecord::Base
     user.save!
     user
   end
-
-
 end
