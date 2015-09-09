@@ -5,15 +5,15 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     res = {}
-    @user = User.find(params[:user_id])
+    user = User.find(params[:user_id])
 
-    events_admin = @user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
-    events_pending = Invitation.where(homiie_id: @user.id).where(pending: true).map { |invite| Event.find(invite.event_id) }
-    events_attending = Invitation.where(homiie_id: @user.id).where(attending: true).map { |invite| Event.find(invite.event_id) }
+    events_admin = user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
+    events_pending = Invitation.where(invitee_id: user.id).where(status: 2).map { |invite| Event.find(invite.event_id) }
+    events_attending = Invitation.where(invitee_id: user.id).where(status: 1).map { |invite| Event.find(invite.event_id) }
 
     res[:events_admin] = events_admin
     res[:events_pending] = events_pending
-    res[:events_attendnig] = events_attending
+    res[:events_attending] = events_attending
 
     render json: res
   end
@@ -21,24 +21,14 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @user = User.find(params[:user_id])
-    @event = Event.find(params[:id])
-    
     res = {}
-    @homiies_attending_event = []
-    @homiies_pending_event = []
+    event = Event.find(params[:id])
+    users_attending = event.invitations.where(status: 1).
+    users_pending = event.invitations.where(status: 2)
 
-    Invitation.where(event_id: @event.id).each do |invite|
-      if invite.attending
-        @homiies_attending_event << User.find(invite.homiie_id)
-      elsif invite.pending
-        @homiies_pending_event << User.find(invite.homiie_id)
-      end
-    end
-
-    res[:event] = @event
-    res[:homiies_pending] = @homiies_pending_event
-    res[:homiies_attending] = @homiies_attending_event
+    res[:event] = event
+    res[:homiies_attending] = homiies_attending
+    res[:homiies_pending] = homiies_pending
     render json: res, status: :ok
   end
 
