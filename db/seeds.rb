@@ -20,12 +20,12 @@ Event.create(title: "Tennis game", city:"Vancouver", country: "Canada", address:
 Event.create(title: "Beers at 999", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2019), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 2)
 Event.create(title: "Beach barbecue", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2020), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 3)
 
-Invitation.create(user_id: 1, homiie_id: 2, event_id: 1, attending:true, pending: false)
-Invitation.create(user_id: 1, homiie_id: 3, event_id: 1, attending:false, pending: true)
-Invitation.create(user_id: 1, homiie_id: 4, event_id: 2, attending:false, pending: true)
-Invitation.create(user_id: 2, homiie_id: 3, event_id: 4, attending:false, pending: true)
-Invitation.create(user_id: 3, homiie_id: 1, event_id: 6, attending:true, pending: false)
-Invitation.create(user_id: 2, homiie_id: 1, event_id: 5, attending:false, pending: true)
+Invitation.create(inviter_id: 1, invitee_id: 2, event_id: 1, status: 1)
+Invitation.create(inviter_id: 1, invitee_id: 3, event_id: 1, status: 2)
+Invitation.create(inviter_id: 1, invitee_id: 4, event_id: 2, status: 1)
+Invitation.create(inviter_id: 2, invitee_id: 3, event_id: 4, status: 1)
+Invitation.create(inviter_id: 3, invitee_id: 1, event_id: 6, status: 1)
+Invitation.create(inviter_id: 2, invitee_id: 1, event_id: 5, status: 2)
 
 Friendship.create(user_id: 1, homiie_id: 2)
 Friendship.create(user_id: 1, homiie_id: 3)

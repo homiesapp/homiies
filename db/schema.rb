@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908222240) do
+ActiveRecord::Schema.define(version: 20150907211626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,21 +41,23 @@ ActiveRecord::Schema.define(version: 20150908222240) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "homiie_id"
     t.integer  "event_id"
-    t.boolean  "attending"
+    t.integer  "invitee_id"
+    t.integer  "inviter_id"
+    t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean  "pending"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "fb_token"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
