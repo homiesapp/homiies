@@ -6,21 +6,23 @@ class InvitationsController < ApplicationController
   # send all the invitations a user has received
   def index
     @invitations = Invitation.all
-    render json: @invitations, status: 200
+    render json: @invitations, status: :ok
   end
 
   # GET /invitations/1
   # GET /invitations/1.json
   def show
+    render json: @invitation, status: :ok
   end
 
   # GET /invitations/new
   def new
-    @invitation = Invitation.new
-  end
-
-  # GET /invitations/1/edit
-  def edit
+    invitation = Invitation.new
+    if invitation.save
+      render json: invitation.id, status: :ok
+    else
+      render nothing: true, status: 403
+    end
   end
 
   # POST /invitations
@@ -30,10 +32,8 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       if @invitation.save
-        format.html { redirect_to @invitation, notice: 'Invitation was successfully created.' }
-        format.json { render :show, status: :created, location: @invitation }
+        format.json { render json: @invitation, status: :created, location: @invitation }
       else
-        format.html { render :new }
         format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
@@ -44,10 +44,8 @@ class InvitationsController < ApplicationController
   def update
     respond_to do |format|
       if @invitation.update(invitation_params)
-        format.html { redirect_to @invitation, notice: 'Invitation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @invitation }
+        format.json { render json: @invitation, status: :ok, location: @invitation }
       else
-        format.html { render :edit }
         format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
@@ -58,7 +56,6 @@ class InvitationsController < ApplicationController
   def destroy
     @invitation.destroy
     respond_to do |format|
-      format.html { redirect_to invitations_url, notice: 'Invitation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +68,6 @@ class InvitationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
-      params.require(:invitation).permit(:user_id, :homiie_id, :event_id, :attending)
+      params.require(:invitation).permit(:inviter_id, :invitee_id, :event_id, :status)
     end
 end

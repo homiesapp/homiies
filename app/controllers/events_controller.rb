@@ -15,18 +15,17 @@ class EventsController < ApplicationController
     res[:events_pending] = events_pending
     res[:events_attending] = events_attending
 
-    render json: res
+    render json: res, status: :ok
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
     res = {}
-    event = Event.find(params[:id])
-    homiies_attending = event.invitations.where(status: 1).map { |invite| invite.invitee }
-    homiies_pending = event.invitations.where(status: 2).map { |invite| invite.invitee }
+    homiies_attending = @event.invitations.where(status: 1).map { |invite| invite.invitee }
+    homiies_pending = @event.invitations.where(status: 2).map { |invite| invite.invitee }
 
-    res[:event] = event
+    res[:event] = @event
     res[:homiies_attending] = homiies_attending
     res[:homiies_pending] = homiies_pending
     render json: res, status: :ok
@@ -35,10 +34,20 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    if @event.save
+      render json: @event.id, status: :ok
+    else
+      render nothing: true, status: 403
+    end
   end
 
   # GET /events/1/edit
   def edit
+    if @event
+      render json: @event, status: :ok
+    else
+      render nothing: true, status: 403
+    end 
   end
 
   # POST /events
@@ -48,10 +57,8 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        format.json { render json: @event, status: :created, location: @event }
       else
-        format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -62,10 +69,8 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+        format.json { render json: @event, status: :ok, location: @event }
       else
-        format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -76,7 +81,6 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -89,7 +93,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category)
+      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id)
     end
 end
 

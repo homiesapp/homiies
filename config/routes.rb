@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :events
     resources :invitations, except: [:edit, :update]
     get '/friendships' => 'friendships#homiies', path: 'homiies'
+    delete '/friendships/:id' => 'friendships#destroy', path: 'homiies/:id'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

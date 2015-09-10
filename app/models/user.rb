@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :events
 
-  has_many :friendships, foreign_key: 'user_id', class_name: 'Friendship'
+  has_many :friendships, foreign_key: 'user_id', class_name: 'Friendship', dependent: :destroy
   has_many :homiies, :through => :friendships
 
   def self.from_omniauth(auth)

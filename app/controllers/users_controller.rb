@@ -4,24 +4,33 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-    render json: @users, status: 200
+    users = User.all
+    render json: users, status: 200
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
     render json: @user # .to_json(:include => [:events, :invitations, :homiies])
   end
 
   # GET /users/new
   def new
-    @user = User.new
+    user = User.new
+    if user.save
+      render json: user, status: :ok
+    else
+      render nothing: true, status: 403
+    end
   end
 
   # GET /users/1/edit
   def edit
+    if @user
+      render json: @user, status: :ok
+    else
+      render nothing: true, status: 403
+    end
   end
 
   # POST /users
@@ -31,10 +40,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -45,10 +52,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        format.json { render json: @user, status: :ok, location: @user }
       else
-        format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -59,7 +64,6 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email)
+      params.require(:user).permit(:username, :email, :oauth_token, :oauth_expires_at, :provider, :uid)
     end
 end
