@@ -11,5 +11,8 @@ class FriendshipsController < ApplicationController
 		
 		render json: @homiies, status: :ok
 	end
+
+	def destroy
+	end
 end
 
