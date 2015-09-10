@@ -2,17 +2,20 @@ class FriendshipsController < ApplicationController
 
 	def homiies
 		@user = User.find(params[:user_id])
-		@friendships = Friendship.where(user_id: @user.id)
-
-		@homiies = []
-		@friendships.each do |friendship|
-			@homiies << User.find(friendship.homiie_id)
+		if @user
+			render json: @user.homiies, status: :ok
+		else
+			render nothing: true, status: 403
 		end
-		
-		render json: @homiies, status: :ok
 	end
 
 	def destroy
+		if Friendship.delete(params[:id]) == 1
+			render nothing: true, status: :ok
+		else
+			render nothing: true, status: 403
+		end
 	end
+
 end
 

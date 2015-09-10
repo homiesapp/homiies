@@ -471,3 +471,6 @@ Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 1.0ms)
   [1m[35mSQL (0.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 2]]
   [1m[36m (8.6ms)[0m  [1mCOMMIT[0m
   [1m[35mFriendship Load (0.6ms)[0m  SELECT  "friendships".* FROM "friendships" WHERE "friendships"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."homiie_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 3]]
