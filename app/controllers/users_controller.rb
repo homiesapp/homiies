@@ -4,22 +4,15 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all  
-    render json: @users
-    # respond_to :json
-    # respond_to do |format|
-    #   format.json { render json: @users, status: 200 }
-    # end
+    @users = User.all
+    render json: @users, status: 200
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    render json: @user.to_json(:include => [:events, :invitations, :friendships, :homiies])
-    # respond_to do |format|
-    #   format.json { render json: @user.to_json(:include => [:events, :invitations, :friendships, :homiies]), status: 200 }
-    # end
+    render json: @user # .to_json(:include => [:events, :invitations, :homiies])
   end
 
   # GET /users/new

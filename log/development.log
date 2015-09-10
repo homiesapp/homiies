@@ -1,0 +1,442 @@
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150903194957)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150903194957"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEvents (20150903195319)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "title" character varying, "city" character varying, "country" character varying, "address" character varying, "postal_code" character varying, "time" timestamp, "description" text, "picture" character varying, "lat" float, "long" float, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150903195319"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateInvitations (20150903200101)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "invitations" ("id" serial primary key, "user_id" integer, "homiie_id" integer, "event_id" integer, "attending" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150903200101"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddUserToEvents (20150903212203)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "events" ADD "user_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150903212203"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFriendships (20150907211626)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "friendships" ("id" serial primary key, "user_id" integer, "homiie_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150907211626"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddFbTokenToUsers (20150908024839)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "oauth_token" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150908024839"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddOauthExpirationToUsers (20150908191847)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "oauth_expires_at" timestamp[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150908191847"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddProviderToUsers (20150908192329)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "provider" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150908192329"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddUidToUsers (20150908192353)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "uid" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150908192353"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddFriendsListToUsers (20150908224055)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "friends_list" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150908224055"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'friendships'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Homiie"], ["email", "homiiesapp@gmail.com"], ["created_at", "2015-09-10 00:42:54.085908"], ["updated_at", "2015-09-10 00:42:54.085908"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["username", "Tim"], ["email", "Torbas@homiies.com"], ["created_at", "2015-09-10 00:42:54.097479"], ["updated_at", "2015-09-10 00:42:54.097479"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Fiesta"], ["city", "Vancouver"], ["country", "Canada"], ["address", "233 Robson St."], ["postal_code", "V16T4B"], ["time", "2015-09-10 00:42:54.109702"], ["description", "Party at Alex's!"], ["picture", "0000010f0003930qls00eitj01abc02"], ["lat", 123.45], ["long", 543.21], ["category", "dancing"], ["user_id", 1], ["created_at", "2015-09-10 00:42:54.143490"], ["updated_at", "2015-09-10 00:42:54.143490"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "invitations" ("user_id", "homiie_id", "event_id", "attending", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 1], ["homiie_id", 2], ["event_id", 1], ["attending", "t"], ["created_at", "2015-09-10 00:42:54.174057"], ["updated_at", "2015-09-10 00:42:54.174057"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["homiie_id", 2], ["created_at", "2015-09-10 00:42:54.200218"], ["updated_at", "2015-09-10 00:42:54.200218"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2015-09-09 17:43:25 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 18ms (Views: 7.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-09-09 17:43:46 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQDqlMTg20VSmsqqbAK4Fswf4oT9zhrNrrGyuMkcpNPhscBGNLb5xQKSxUcjOOKgNv3QBScgWYeAYmhxVQvOBMajgEhEx7vttAqnUcE5MYRXPHu-5wAun4EkUNbkElCVbjizlCtr3VPiS011HzdFim7l5mP2O4gQx7x87hZ4CjnCmwvdDfKuiB-XSk46gDKAypcy10pFNTeI36TZmzUc9Wu7xvEPI0Kn0ucrgSeunJiZbSUL-bdKC-e-14hksoMFYa0th7mqIagQw59iTUlyM1ou_ZT2QOE3I40svjW-txZ2V_UlOYKPFYcXnDWTp6ABUVc&state=3e02be49a585cf473d698a47d144df8d7d39dfcc7452c6c7" for ::1 at 2015-09-09 17:43:52 -0700
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQDqlMTg20VSmsqqbAK4Fswf4oT9zhrNrrGyuMkcpNPhscBGNLb5xQKSxUcjOOKgNv3QBScgWYeAYmhxVQvOBMajgEhEx7vttAqnUcE5MYRXPHu-5wAun4EkUNbkElCVbjizlCtr3VPiS011HzdFim7l5mP2O4gQx7x87hZ4CjnCmwvdDfKuiB-XSk46gDKAypcy10pFNTeI36TZmzUc9Wu7xvEPI0Kn0ucrgSeunJiZbSUL-bdKC-e-14hksoMFYa0th7mqIagQw59iTUlyM1ou_ZT2QOE3I40svjW-txZ2V_UlOYKPFYcXnDWTp6ABUVc", "state"=>"3e02be49a585cf473d698a47d144df8d7d39dfcc7452c6c7", "provider"=>"facebook"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT 1[0m  [["uid", "10153162461447852"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("username", "uid", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Andrea Cabral"], ["uid", "10153162461447852"], ["email", "andrea.cabralbandack@gmail.com"], ["created_at", "2015-09-10 00:43:53.619095"], ["updated_at", "2015-09-10 00:43:53.619095"]]
+  [1m[35m (8.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "provider" = $1, "oauth_token" = $2, "oauth_expires_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5  [["provider", "facebook"], ["oauth_token", "CAAPQuUDeY70BANT5Gg1lVRxH0OJZCNvcm72zQaeDRVKIbn17M2JM3XuEEOwlalCjgeWAonRoNtWkTc2IzvVRDjxzO5RFxaqeTGeXA8dZBtVZB9Fhv7wNPiyYk8zCm1iN6fXKsbVPgFFmmMyLwtiTZADV3bbDmGdgfMRSBtMy7mbqECnm5HgWss06zQoH0eHbPD3yJSjmeQZDZD"], ["oauth_expires_at", "2015-11-09 00:43:51.000000"], ["updated_at", "2015-09-10 00:43:53.633432"], ["id", 3]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 410ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/" for ::1 at 2015-09-09 17:43:53 -0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/Users/1/Events/1" for ::1 at 2015-09-09 17:44:14 -0700
+
+ActionController::RoutingError (No route matches [GET] "/Users/1/Events/1"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/KAB/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/KAB/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/KAB/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.5ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (108.8ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (68.9ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (137.5ms)
+
+
+Started GET "/Users/1/events/1" for ::1 at 2015-09-09 17:44:26 -0700
+
+ActionController::RoutingError (No route matches [GET] "/Users/1/events/1"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/KAB/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/KAB/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/KAB/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.0ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (88.4ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (49.2ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/KAB/.rvm/gems/ruby-2.2.1/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (121.1ms)
+
+
+Started GET "/users/1/events/1" for ::1 at 2015-09-09 17:44:37 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 24ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1/events/1" for ::1 at 2015-09-09 17:45:11 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mEvent Load (0.5ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 2ms (ActiveRecord: 0.5ms)
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150903194957)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (6.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "oauth_token" character varying, "oauth_expires_at" timestamp, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150903194957"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEvents (20150903195319)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "events" ("id" serial primary key, "title" character varying, "city" character varying, "country" character varying, "address" character varying, "postal_code" character varying, "time" timestamp, "description" text, "picture" character varying, "lat" float, "long" float, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150903195319"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateInvitations (20150903200101)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (5.7ms)[0m  [1mCREATE TABLE "invitations" ("id" serial primary key, "event_id" integer, "invitee_id" integer, "inviter_id" integer, "status" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_invitations_on_invitee_id" ON "invitations"  ("invitee_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_invitations_on_inviter_id" ON "invitations"  ("inviter_id")[0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_invitations_on_event_id" ON "invitations"  ("event_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150903200101"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to AddUserToEvents (20150903212203)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "events" ADD "user_id" integer
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_events_on_user_id" ON "events"  ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150903212203"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFriendships (20150907211626)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "friendships" ("id" serial primary key, "user_id" integer, "homiie_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_friendships_on_user_id" ON "friendships"  ("user_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_friendships_on_homiie_id" ON "friendships"  ("homiie_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "index_friendships_on_user_id_and_homiie_id" ON "friendships"  ("user_id", "homiie_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150907211626"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'friendships'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'invitations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Andrea"], ["email", "andrea@gmail.com"], ["created_at", "2015-09-10 00:53:21.892348"], ["updated_at", "2015-09-10 00:53:21.892348"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["username", "Alex"], ["email", "alex@homiies.com"], ["created_at", "2015-09-10 00:53:21.898055"], ["updated_at", "2015-09-10 00:53:21.898055"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Evert"], ["email", "evert@homiies.com"], ["created_at", "2015-09-10 00:53:21.900980"], ["updated_at", "2015-09-10 00:53:21.900980"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["username", "Tim"], ["email", "tim@homiies.com"], ["created_at", "2015-09-10 00:53:21.904385"], ["updated_at", "2015-09-10 00:53:21.904385"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Steph"], ["email", "steph@homiies.com"], ["created_at", "2015-09-10 00:53:21.906924"], ["updated_at", "2015-09-10 00:53:21.906924"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["username", "Bryan"], ["email", "bryan@homiies.com"], ["created_at", "2015-09-10 00:53:21.909579"], ["updated_at", "2015-09-10 00:53:21.909579"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Camping"], ["city", "Vancouver"], ["country", "Canada"], ["address", "233 Robson St."], ["postal_code", "V16T4B"], ["time", "2015-01-01 08:00:00.000000"], ["description", "Party at Alex's!"], ["picture", "0000010f0003930qls00eitj01abc02"], ["lat", 49.25], ["long", -123.01], ["category", "dancing"], ["user_id", 1], ["created_at", "2015-09-10 00:53:21.929984"], ["updated_at", "2015-09-10 00:53:21.929984"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Fiesta"], ["city", "Vancouver"], ["country", "Canada"], ["address", "233 Robson St."], ["postal_code", "V16T4B"], ["time", "2016-01-01 08:00:00.000000"], ["description", "Party at Alex's!"], ["picture", "0000010f0003930qls00eitj01abc02"], ["lat", 49.25], ["long", -123.01], ["category", "dancing"], ["user_id", 1], ["created_at", "2015-09-10 00:53:21.933779"], ["updated_at", "2015-09-10 00:53:21.933779"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Birthday party"], ["city", "Vancouver"], ["country", "Canada"], ["address", "233 Robson St."], ["postal_code", "V16T4B"], ["time", "2017-01-01 08:00:00.000000"], ["description", "Party at Alex's!"], ["picture", "0000010f0003930qls00eitj01abc02"], ["lat", 49.25], ["long", -123.01], ["category", "dancing"], ["user_id", 1], ["created_at", "2015-09-10 00:53:21.936355"], ["updated_at", "2015-09-10 00:53:21.936355"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Tennis game"], ["city", "Vancouver"], ["country", "Canada"], ["address", "233 Robson St."], ["postal_code", "V16T4B"], ["time", "2018-01-01 08:00:00.000000"], ["description", "Party at Alex's!"], ["picture", "0000010f0003930qls00eitj01abc02"], ["lat", 49.25], ["long", -123.01], ["category", "dancing"], ["user_id", 2], ["created_at", "2015-09-10 00:53:21.938818"], ["updated_at", "2015-09-10 00:53:21.938818"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["title", "Beers at 999"], ["city", "Vancouver"], ["country", "Canada"], ["address", "233 Robson St."], ["postal_code", "V16T4B"], ["time", "2019-01-01 08:00:00.000000"], ["description", "Party at Alex's!"], ["picture", "0000010f0003930qls00eitj01abc02"], ["lat", 49.25], ["long", -123.01], ["category", "dancing"], ["user_id", 2], ["created_at", "2015-09-10 00:53:21.943316"], ["updated_at", "2015-09-10 00:53:21.943316"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("title", "city", "country", "address", "postal_code", "time", "description", "picture", "lat", "long", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"  [["title", "Beach barbecue"], ["city", "Vancouver"], ["country", "Canada"], ["address", "233 Robson St."], ["postal_code", "V16T4B"], ["time", "2020-01-01 08:00:00.000000"], ["description", "Party at Alex's!"], ["picture", "0000010f0003930qls00eitj01abc02"], ["lat", 49.25], ["long", -123.01], ["category", "dancing"], ["user_id", 3], ["created_at", "2015-09-10 00:53:21.946478"], ["updated_at", "2015-09-10 00:53:21.946478"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "invitations" ("inviter_id", "invitee_id", "event_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["inviter_id", 1], ["invitee_id", 2], ["event_id", 1], ["status", 1], ["created_at", "2015-09-10 00:53:21.958392"], ["updated_at", "2015-09-10 00:53:21.958392"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "invitations" ("inviter_id", "invitee_id", "event_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["inviter_id", 1], ["invitee_id", 3], ["event_id", 1], ["status", 2], ["created_at", "2015-09-10 00:53:21.962632"], ["updated_at", "2015-09-10 00:53:21.962632"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "invitations" ("inviter_id", "invitee_id", "event_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["inviter_id", 1], ["invitee_id", 4], ["event_id", 2], ["status", 1], ["created_at", "2015-09-10 00:53:21.966182"], ["updated_at", "2015-09-10 00:53:21.966182"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "invitations" ("inviter_id", "invitee_id", "event_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["inviter_id", 2], ["invitee_id", 3], ["event_id", 4], ["status", 1], ["created_at", "2015-09-10 00:53:21.969530"], ["updated_at", "2015-09-10 00:53:21.969530"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "invitations" ("inviter_id", "invitee_id", "event_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["inviter_id", 3], ["invitee_id", 1], ["event_id", 6], ["status", 1], ["created_at", "2015-09-10 00:53:21.972476"], ["updated_at", "2015-09-10 00:53:21.972476"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "invitations" ("inviter_id", "invitee_id", "event_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["inviter_id", 2], ["invitee_id", 1], ["event_id", 5], ["status", 2], ["created_at", "2015-09-10 00:53:21.975961"], ["updated_at", "2015-09-10 00:53:21.975961"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["homiie_id", 2], ["created_at", "2015-09-10 00:53:21.988826"], ["updated_at", "2015-09-10 00:53:21.988826"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["homiie_id", 3], ["created_at", "2015-09-10 00:53:21.992592"], ["updated_at", "2015-09-10 00:53:21.992592"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["homiie_id", 4], ["created_at", "2015-09-10 00:53:21.995102"], ["updated_at", "2015-09-10 00:53:21.995102"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 2], ["homiie_id", 3], ["created_at", "2015-09-10 00:53:21.998996"], ["updated_at", "2015-09-10 00:53:21.998996"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friendships" ("user_id", "homiie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["homiie_id", 5], ["created_at", "2015-09-10 00:53:22.001663"], ["updated_at", "2015-09-10 00:53:22.001663"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+
+
+Started GET "/users/1/events/1" for ::1 at 2015-09-09 17:53:37 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mEvent Load (0.7ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mInvitation Load (1.1ms)[0m  SELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = $1 AND "invitations"."status" = $2  [["event_id", 1], ["status", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mInvitation Load (0.5ms)[0m  SELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = $1 AND "invitations"."status" = $2  [["event_id", 1], ["status", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 94ms (Views: 2.0ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/auth/facebook" for ::1 at 2015-09-09 17:53:48 -0700
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQB5JBxINzUhpwL7KQJSdHhGpEk5xCJcVsF3Og2wVAOOOxlSiN-JhjaeDIQAFtVEDyPoFoErB0MvuRlQ1HSUEPzrtShNPs_PYu-XCmcp7oXAlUTopFQ4os5ymqj-j5Yli8Q6BNrNkx2RJwYVYACOItUZ46T8MzTYJbV4_Mlvkc7kaEFbIg-9ysaj8WTkcq_ZhbXetNKV3A_7RwuuMHno_3L9e26RQhgl-ASLIKJSgJhaIER0Wr0NcpGrNzH7SgMlyo4k70tA1y4yy1ZOVOal5_Etf2iHLAZ0PCHyhhbg2GPoMYAdriafpCuwQVpw-bmyArU&state=70edaeaf575e5e5256b226ffad92f01832f3d541e5b7b7d7" for ::1 at 2015-09-09 17:53:48 -0700
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQB5JBxINzUhpwL7KQJSdHhGpEk5xCJcVsF3Og2wVAOOOxlSiN-JhjaeDIQAFtVEDyPoFoErB0MvuRlQ1HSUEPzrtShNPs_PYu-XCmcp7oXAlUTopFQ4os5ymqj-j5Yli8Q6BNrNkx2RJwYVYACOItUZ46T8MzTYJbV4_Mlvkc7kaEFbIg-9ysaj8WTkcq_ZhbXetNKV3A_7RwuuMHno_3L9e26RQhgl-ASLIKJSgJhaIER0Wr0NcpGrNzH7SgMlyo4k70tA1y4yy1ZOVOal5_Etf2iHLAZ0PCHyhhbg2GPoMYAdriafpCuwQVpw-bmyArU", "state"=>"70edaeaf575e5e5256b226ffad92f01832f3d541e5b7b7d7", "provider"=>"facebook"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT 1  [["uid", "10153162461447852"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("username", "uid", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["username", "Andrea Cabral"], ["uid", "10153162461447852"], ["email", "andrea.cabralbandack@gmail.com"], ["created_at", "2015-09-10 00:53:50.065158"], ["updated_at", "2015-09-10 00:53:50.065158"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "provider" = $1, "oauth_token" = $2, "oauth_expires_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["provider", "facebook"], ["oauth_token", "CAAPQuUDeY70BAMDrvq4sCZBfukEaKWRzKA49OCVO25jJ6qFL2LCczYhglBZB2x7dCf0O6Weck7sB7X3wv0O01z0ULNxIHzCtGa2jyG1hfWo7pMOVXAXRW5UKmvgVNVNv4GLHctIofLWcGKNWZBOToIPavgh8Apnnjv7DGJjJcd8ZBdTI4j7ouWhFoY1xeQ75nzqIjILi7QZDZD"], ["oauth_expires_at", "2015-11-09 00:43:51.000000"], ["updated_at", "2015-09-10 00:53:50.070638"], ["id", 7]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 401ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2015-09-09 17:53:50 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 1.0ms)

@@ -1,14 +1,15 @@
-
 class FriendshipsController < ApplicationController
 
-	def index
+	def homiies
 		@user = User.find(params[:user_id])
-		@friendships = @user.friendships
+		@friendships = Friendship.where(user_id: @user.id)
 
-		respond_to do |format|
-			format.json { render json: @friendships, status: 200 }
+		@homiies = []
+		@friendships.each do |friendship|
+			@homiies << User.find(friendship.homiie_id)
 		end
-
+		
+		render json: @homiies, status: :ok
 	end
 end
 

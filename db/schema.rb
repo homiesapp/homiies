@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908224055) do
+ActiveRecord::Schema.define(version: 20150907211626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20150908224055) do
     t.integer  "user_id"
   end
 
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "homiie_id"
@@ -40,25 +42,32 @@ ActiveRecord::Schema.define(version: 20150908224055) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "friendships", ["homiie_id"], name: "index_friendships_on_homiie_id", using: :btree
+  add_index "friendships", ["user_id", "homiie_id"], name: "index_friendships_on_user_id_and_homiie_id", unique: true, using: :btree
+  add_index "friendships", ["user_id"], name: "index_friendships_on_user_id", using: :btree
+
   create_table "invitations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "homiie_id"
     t.integer  "event_id"
-    t.boolean  "attending"
+    t.integer  "invitee_id"
+    t.integer  "inviter_id"
+    t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "invitations", ["event_id"], name: "index_invitations_on_event_id", using: :btree
+  add_index "invitations", ["invitee_id"], name: "index_invitations_on_invitee_id", using: :btree
+  add_index "invitations", ["inviter_id"], name: "index_invitations_on_inviter_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "provider"
     t.string   "uid"
-    t.string   "friends_list"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end

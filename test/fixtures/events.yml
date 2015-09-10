@@ -1,27 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  city: MyString
-  country: MyString
-  address: MyString
-  postal_code: MyString
-  time: 2015-09-03 12:53:19
-  description: MyText
-  picture: MyString
-  lat: 1.5
-  long: 1.5
-  category: MyString
+  title: Camping in my garden
+  city: Vancouver
+  country: Canada
+  address: west 2nd avenue
+  postal_code: v6j 1j4
+  time: 2015-09-20 12:53:19
+  description: great opportunity to enjoy the sun
+  picture: 
+  lat: 49.25
+  long: -123.01
+  category: outdoors
 
 two:
-  title: MyString
-  city: MyString
-  country: MyString
-  address: MyString
-  postal_code: MyString
-  time: 2015-09-03 12:53:19
-  description: MyText
-  picture: MyString
-  lat: 1.5
-  long: 1.5
-  category: MyString
+  title: Tennis in kits
+  city: Vancouver
+  country: Canada
+  address: kits beach
+  postal_code: V6j 1j4
+  time: 2015-10-15 12:53:19
+  description: A tennis game for fun
+  picture: 
+  lat: 49.25
+  long: -123.01
+  category: sport

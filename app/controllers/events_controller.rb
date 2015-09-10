@@ -1,17 +1,35 @@
-
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
-    render json: @events, status: 200
+    res = {}
+    user = User.find(params[:user_id])
+
+    events_admin = user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
+    events_pending = Invitation.where(invitee_id: user.id).where(status: 2).map { |invite| Event.find(invite.event_id) }
+    events_attending = Invitation.where(invitee_id: user.id).where(status: 1).map { |invite| Event.find(invite.event_id) }
+
+    res[:events_admin] = events_admin
+    res[:events_pending] = events_pending
+    res[:events_attending] = events_attending
+
+    render json: res
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    res = {}
+    event = Event.find(params[:id])
+    homiies_attending = event.invitations.where(status: 1).map { |invite| invite.invitee }
+    homiies_pending = event.invitations.where(status: 2).map { |invite| invite.invitee }
+
+    res[:event] = event
+    res[:homiies_attending] = homiies_attending
+    res[:homiies_pending] = homiies_pending
+    render json: res, status: :ok
   end
 
   # GET /events/new

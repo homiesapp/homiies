@@ -1,11 +1,12 @@
-
 class InvitationsController < ApplicationController
   before_action :set_invitation, only: [:show, :edit, :update, :destroy]
 
   # GET /invitations
   # GET /invitations.json
+  # send all the invitations a user has received
   def index
     @invitations = Invitation.all
+    render json: @invitations, status: 200
   end
 
   # GET /invitations/1
