@@ -10,18 +10,16 @@ class User < ActiveRecord::Base
     friends  =[]
     names = []
     pics = []
-    result = @graph.get_connections("me", "taggable_friends")
-    while result 
-      friends << result
-      result = result.next_page
-    end
-    friends.flatten!
-    friends.length.times do |i|
-      names << friends[i]['name']
-      pics << friends[i]['picture']['data']['url']
-    end
-
-    binding.pry
+    # result = @graph.get_connections("me", "taggable_friends")
+    # while result 
+    #   friends << result
+    #   result = result.next_page
+    # end
+    # friends.flatten!
+    # friends.length.times do |i|
+    #   names << friends[i]['name']
+    #   pics << friends[i]['picture']['data']['url']
+    # end
     if !user    
       user = User.create(username: auth.info.name, uid: auth.uid, email: @graph.get_object("me?fields=name,picture,email")['email'])
     end
