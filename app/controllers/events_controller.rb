@@ -23,8 +23,8 @@ class EventsController < ApplicationController
   def show
     res = {}
     event = Event.find(params[:id])
-    users_attending = event.invitations.where(status: 1).
-    users_pending = event.invitations.where(status: 2)
+    homiies_attending = event.invitations.where(status: 1).map { |invite| invite.invitee }
+    homiies_pending = event.invitations.where(status: 2).map { |invite| invite.invitee }
 
     res[:event] = event
     res[:homiies_attending] = homiies_attending

@@ -7269,3 +7269,6 @@ Completed 200 OK in 59ms (Views: 9.6ms | ActiveRecord: 7.0ms)
   [1m[36mInvitation Load (0.5ms)[0m  [1mSELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = $1[0m  [["event_id", 1]]
   [1m[35mEvent Load (1.2ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" ASC LIMIT 1
   [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."invitee_id" WHERE "invitations"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mInvitation Load (0.9ms)[0m  [1mSELECT  "invitations".* FROM "invitations" WHERE "invitations"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mInvitation Load (1.0ms)[0m  SELECT  "invitations".* FROM "invitations" WHERE "invitations"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
