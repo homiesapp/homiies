@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
 
 	def destroy
 		if Friendship.delete(params[:id]) == 1
-			render nothing: true, status: :ok
+			head :no_content
 		else
 			render nothing: true, status: 403
 		end

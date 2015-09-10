@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    if @event.update(event_params)
+    if @event
       render json: @event, status: :ok
     else
       render nothing: true, status: 403
@@ -93,7 +93,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category)
+      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id)
     end
 end
 
