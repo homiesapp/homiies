@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
@@ -83,6 +85,14 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.json { head :no_content }
     end
+  end
+
+  #suggest
+  def suggest
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.281887,-123.108188&radius=500&key=AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
+    res = JSON.load(open(url))
+    # binding.pry
+    render json: res
   end
 
   private

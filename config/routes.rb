@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
+  get '/suggest', to: 'events#suggest'
+
   # resources :users
 
   resources :users do
