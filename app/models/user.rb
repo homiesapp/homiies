@@ -26,8 +26,10 @@ class User < ActiveRecord::Base
     names.each do |name|
       friend_user = User.find_by username: name
       if friend_user
-        friendship = Friendship.create(user_id: user.id, homiie_id: friend_user.id)
-        friendship.save!
+        if !Friendship.create(user_id: user.id, homiie_id: friend_user.id)
+          friendship = Friendship.create(user_id: user.id, homiie_id: friend_user.id)
+          friendship.save!
+        end
       end
     end
 
