@@ -89,9 +89,23 @@ class EventsController < ApplicationController
 
   #suggest
   def suggest
-    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=49.281887,-123.108188&radius=500&key=AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
+    #location latitude, longitude
+    #type string
+    #open now boolean
+    #radius int
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
+    
+    if params.length > 2
+      params.each do |key, param|
+        unless key == "controller" || key == "action"
+          url << "&#{key}=#{param}"
+        end
+      end
+    else
+      url << "&location=49.281887,-123.1207&type=bar&opennow=true&radius=500"
+    end
+    
     res = JSON.load(open(url))
-    # binding.pry
     render json: res
   end
 
