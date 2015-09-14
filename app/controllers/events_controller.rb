@@ -55,6 +55,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.chat_room = ChatRoom.new
 
     respond_to do |format|
       if @event.save
@@ -94,7 +95,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id)
+      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id, :chat_room_id)
     end
 end
 

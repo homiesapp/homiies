@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:update, :destroy]
+  before_action :set_chat_room, only: [:create]
 
 	def new
 		message = Message.new
@@ -12,6 +13,8 @@ class MessagesController < ApplicationController
 
 	def create
 		message = Message.new(message_params)
+		message.chat_room = @chat_room
+		
 		if message.save
 			render nothing: true, status: :ok
 		else
@@ -33,6 +36,10 @@ class MessagesController < ApplicationController
 	end
 
 	private 
+		def set_chat_room
+			@chat_room = ChatRoom.find(params[:message][:chat_room_id])
+		end
+
     def set_message
       @message = Message.find(params[:id])
     end
