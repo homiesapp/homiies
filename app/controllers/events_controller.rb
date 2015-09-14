@@ -25,6 +25,8 @@ class EventsController < ApplicationController
     homiies_attending = @event.invitations.where(status: 1).map { |invite| invite.invitee }
     homiies_pending = @event.invitations.where(status: 2).map { |invite| invite.invitee }
 
+    res[:messages] = @event.char_room.messages
+
     res[:event] = @event
     res[:homiies_attending] = homiies_attending
     res[:homiies_pending] = homiies_pending
