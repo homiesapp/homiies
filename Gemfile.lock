@@ -180,6 +180,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  json
   koala (~> 2.2)
   omniauth-facebook (~> 1.4.1)
   pg
