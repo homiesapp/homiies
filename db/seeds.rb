@@ -52,3 +52,30 @@ Friendship.create(user_id: 1, homiie_id: 12)
 Friendship.create(user_id: 1, homiie_id: 13)
 Friendship.create(user_id: 1, homiie_id: 14)
 Friendship.create(user_id: 1, homiie_id: 15)
+
+ChatRoom.create(event_id: 1)
+
+Message.create(chat_room_id: 1, user_id: 1, text: )
+Message.create(chat_room_id: 1, user_id: 2, text: )
+Message.create(chat_room_id: 1, user_id: 1, text: )
+Message.create(chat_room_id: 1, user_id: 2, text: )
+Message.create(chat_room_id: 1, user_id: 1, text: )
+Message.create(chat_room_id: 1, user_id: 2, text: )
+Message.create(chat_room_id: 1, user_id: 1, text: )
+Message.create(chat_room_id: 1, user_id: 2, text: )
+Message.create(chat_room_id: 1, user_id: 1, text: )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
