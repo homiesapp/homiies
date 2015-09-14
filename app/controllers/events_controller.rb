@@ -93,17 +93,19 @@ class EventsController < ApplicationController
     #type string
     #open now boolean
     #radius int
-    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
-    
-    if params.length > 2
-      params.each do |key, param|
-        unless key == "controller" || key == "action"
-          url << "&#{key}=#{param}"
-        end
-      end
-    else
-      url << "&location=49.281887,-123.1207&type=bar&opennow=true&radius=500"
-    end
+
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
+    api_params = {
+      key: "AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY",
+      location: "49.281887,-123.1207",
+      type: "bar&restaraunt",
+      opennow: "true",
+      radius: "1000",
+    }
+
+    url_params = api_params.map{|key,value| "#{key}=#{value}"}.join('&')
+
+    url << url_params
     
     res = JSON.load(open(url))
     render json: res
