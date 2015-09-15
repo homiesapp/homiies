@@ -97,17 +97,17 @@ Friendship.create(user_id: 1, homiie_id: 13)
 Friendship.create(user_id: 1, homiie_id: 14)
 Friendship.create(user_id: 1, homiie_id: 15)
 
-ChatRoom.create(event_id: 1)
+Chatroom.create(event_id: 1)
 
-Message.create(chat_room_id: 1, user_id: 1, text: 'Hi')
-Message.create(chat_room_id: 1, user_id: 2, text: 'Hey, how are you?')
-Message.create(chat_room_id: 1, user_id: 1, text: 'good, yourself?')
-Message.create(chat_room_id: 1, user_id: 2, text: 'Good! Cannot wait to go to that bar!')
-Message.create(chat_room_id: 1, user_id: 1, text: 'yea me neither, love their specials')
-Message.create(chat_room_id: 1, user_id: 2, text: 'you gonna get their on time?')
-Message.create(chat_room_id: 1, user_id: 1, text: 'yup hope so..')
-Message.create(chat_room_id: 1, user_id: 2, text: 'great')
-Message.create(chat_room_id: 1, user_id: 1, text: 'see you there mate')
+Message.create(chatroom_id: 1, user_id: 1, text: 'Hi')
+Message.create(chatroom_id: 1, user_id: 2, text: 'Hey, how are you?')
+Message.create(chatroom_id: 1, user_id: 1, text: 'good, yourself?')
+Message.create(chatroom_id: 1, user_id: 2, text: 'Good! Cannot wait to go to that bar!')
+Message.create(chatroom_id: 1, user_id: 1, text: 'yea me neither, love their specials')
+Message.create(chatroom_id: 1, user_id: 2, text: 'you gonna get their on time?')
+Message.create(chatroom_id: 1, user_id: 1, text: 'yup hope so..')
+Message.create(chatroom_id: 1, user_id: 2, text: 'great')
+Message.create(chatroom_id: 1, user_id: 1, text: 'see you there mate')
 
 
 # users = Event.find(1).invitees

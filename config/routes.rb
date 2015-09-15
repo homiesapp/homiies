@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     delete '/friendships/:id' => 'friendships#destroy', path: 'homiies/:id'
   end
 
-  resources :messages, only: [:show, :create]
+  resources :messages, only: [:index, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

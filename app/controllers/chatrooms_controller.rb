@@ -1,4 +1,4 @@
-class ChatRoomsController < ApplicationController
+class ChatroomsController < ApplicationController
 
 	def new
 	end

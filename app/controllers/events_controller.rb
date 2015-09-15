@@ -9,15 +9,20 @@ class EventsController < ApplicationController
     res = {}
     user = User.find(params[:user_id])
 
-    events_admin = user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
-    events_pending = Invitation.where(invitee_id: user.id).where(status: 2).map { |invite| Event.find(invite.event_id) }
-    events_attending = Invitation.where(invitee_id: user.id).where(status: 1).map { |invite| Event.find(invite.event_id) }
+    # events_admin = user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
+    # events_pending = Invitation.where(invitee_id: user.id).where(status: 2).map { |invite| Event.find(invite.event_id) }
+    # events_attending = Invitation.where(invitee_id: user.id).where(status: 1).map { |invite| Event.find(invite.event_id) }
 
-    res[:events_admin] = events_admin
-    res[:events_pending] = events_pending
-    res[:events_attending] = events_attending
-
-    render json: res, status: :ok
+    # res[:events] = events_admin
+    # res[:events_pending] = events_pending
+    # res[:events_attending] = events_attending
+    if params[:option] == 'time'
+      render json: Event.find_by_sql('SELECT * FROM events WHERE time > NOW() ORDER BY time - NOW()'), status: :ok
+    elsif params[:option] == 'all'
+      render json: Event.all, status: :ok
+    else
+      render nothing: true, status: 403 #check if error number should really be 403 when path on client request is unknown.
+    end
   end
 
   # GET /events/1
@@ -30,15 +35,15 @@ class EventsController < ApplicationController
     res[:event] = @event
     res[:homiies_attending] = homiies_attending
     res[:homiies_pending] = homiies_pending
-    res[:messages] = @event.chat_room.messages
+    res[:messages] = @event.chatroom.messages
     render json: res, status: :ok
   end
 
   # GET /events/new
   def new
-    @event = Event.new
-    if @event.save
-      render json: @event.id, status: :ok
+    event = Event.new
+    if event.save
+      render json: event, status: :ok
     else
       render nothing: true, status: 403
     end
@@ -56,14 +61,14 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
-    @event.chat_room = ChatRoom.new
+    event = Event.new(event_params)
+    event.chatroom = Chatroom.new()
 
     respond_to do |format|
-      if @event.save
-        format.json { render json: @event, status: :created, location: @event }
+      if event.save
+        format.json { render json: event, status: :created }
       else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: event.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -73,7 +78,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.json { render json: @event, status: :ok, location: @event }
+        format.json { render json: @event, status: :ok }
       else
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -107,7 +112,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id, :chat_room_id)
+      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id, :chatroom_id)
     end
 end
 
