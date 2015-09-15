@@ -9,9 +9,6 @@ class EventsController < ApplicationController
     res = {}
     user = User.find(params[:user_id])
 
-    events = Event.where
-
-    res[:events] = events
     # events_admin = user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
     # events_pending = Invitation.where(invitee_id: user.id).where(status: 2).map { |invite| Event.find(invite.event_id) }
     # events_attending = Invitation.where(invitee_id: user.id).where(status: 1).map { |invite| Event.find(invite.event_id) }
@@ -20,7 +17,7 @@ class EventsController < ApplicationController
     # res[:events_pending] = events_pending
     # res[:events_attending] = events_attending
 
-    render json: res, status: :ok
+    render json: Event.find_by_sql('SELECT * FROM events WHERE time > NOW() ORDER BY time - NOW()'), status: :ok
   end
 
   # GET /events/1
