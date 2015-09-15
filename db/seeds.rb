@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+require 'open-uri'
+require 'json'
 User.create(username: "Andrea", email: "andrea@gmail.com", lat: 49.281887, long: -123.108188)
 User.create(username: "Alex", email: "alex@homiies.com", lat: 49.281887, long: -123.108188)
 User.create(username: "Evert", email: "evert@homiies.com", lat: 49.281887, long: -123.108188)
@@ -81,7 +82,7 @@ def populate_events(arr, num)
       lat: arr['results'][i]['geometry']['location']['lat'],
       long: arr['results'][i]['geometry']['location']['lng'],
       rating: arr['results'][i]['rating'],
-      type: arr['results'][i]['types'][0],
+      type_place: arr['results'][i]['types'][0],
       photo_req_url: photo_url,
       web_url: event_details['result']['website'],
       votes: 0,
@@ -100,7 +101,7 @@ populate_events(get_places('cafe'),7)
 @events.shuffle!
 
 @events.each do |suggestion|
-  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], rating: suggestion[:rating], type: suggestion[:type], web_url: suggestion[:web_url], votes: suggestion[:votes])
+  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], rating: suggestion[:rating], type: suggestion[:type_place], web_url: suggestion[:web_url], votes: suggestion[:votes])
 end
 
 
