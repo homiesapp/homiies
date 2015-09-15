@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: 
+  title: MyString
+  lat: 1.5
+  long: 1.5
+  rating: 1.5
+  type: 
+  photo_req: MyString
+  web_url: MyString
+  votes: 
+
+two:
+  event_id: 
+  title: MyString
+  lat: 1.5
+  long: 1.5
+  rating: 1.5
+  type: 
+  photo_req: MyString
+  web_url: MyString
+  votes: 

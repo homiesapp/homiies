@@ -6,22 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(username: "Andrea", email: "andrea@gmail.com")
-User.create(username: "Alex", email: "alex@homiies.com")
-User.create(username: "Evert", email: "evert@homiies.com")
-User.create(username: "Tim", email: "tim@homiies.com")
-User.create(username: "Steph", email: "steph@homiies.com")
-User.create(username: "Bryan", email: "bryan@homiies.com")
-User.create(username: "Bob", email: "bob@homiies.com")
-User.create(username: "Joe", email: "joe@homiies.com")
-User.create(username: "Mich", email: "mich@homiies.com")
-User.create(username: "Mick", email: "mick@homiies.com")
-User.create(username: "Amanda", email: "amanda@homiies.com")
-User.create(username: "Georgia", email: "georgia@homiies.com")
-User.create(username: "Tara", email: "tara@homiies.com")
-User.create(username: "Nina", email: "nina@homiies.com")
-User.create(username: "Deborah", email: "deborah@homiies.com")
-User.create(username: "Samantha", email: "samantha@homiies.com")
+User.create(username: "Andrea", email: "andrea@gmail.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Alex", email: "alex@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Evert", email: "evert@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Tim", email: "tim@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Steph", email: "steph@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Bryan", email: "bryan@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Bob", email: "bob@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Joe", email: "joe@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Mich", email: "mich@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Mick", email: "mick@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Amanda", email: "amanda@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Georgia", email: "georgia@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Tara", email: "tara@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Nina", email: "nina@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Deborah", email: "deborah@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Samantha", email: "samantha@homiies.com", lat: 49.281887, long: -123.108188)
 
 Event.create(title: "Camping", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2015), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
 Event.create(title: "Fiesta", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2016), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
@@ -65,15 +65,43 @@ Message.create(chat_room_id: 1, user_id: 1, text: 'yup hope so..')
 Message.create(chat_room_id: 1, user_id: 2, text: 'great')
 Message.create(chat_room_id: 1, user_id: 1, text: 'see you there mate')
 
+@events = []
+@api_key = 'AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
+@radius = '3000'
+@lat = 49.281887
+@long = -123.108188
+def populate_events(arr, num) 
+  num.times do |i|
+  if arr['results'][i]['photos']
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{arr['results'][i]['photos'][0]['photo_reference']}&key=#{@api_key}"
+  end
+  event_details = JSON.load(open("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{arr['results'][i]['place_id']}&key=#{@api_key}"))
+  @events << {
+      title: arr['results'][i]['name'],
+      lat: arr['results'][i]['geometry']['location']['lat'],
+      long: arr['results'][i]['geometry']['location']['lng'],
+      rating: arr['results'][i]['rating'],
+      type: arr['results'][i]['types'][0],
+      photo_req_url: photo_url,
+      web_url: event_details['result']['website'],
+      votes: 0,
+    }   
+  end
+end
 
+def get_places(type)
+  JSON.load(open("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{@lat},#{@long}&radius=#{@radius}&types=#{type}&key=#{@api_key}"))
+end
 
+populate_events(get_places('bar'),20)
+populate_events(get_places('park'),5)
+populate_events(get_places('movie_theatre'),3)
+populate_events(get_places('cafe'),7)
+@events.shuffle!
 
-
-
-
-
-
-
+@events.each do |suggestion|
+  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], rating: suggestion[:rating], type: suggestion[:type], web_url: suggestion[:web_url], votes: suggestion[:votes])
+end
 
 
 

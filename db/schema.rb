@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914164414) do
+ActiveRecord::Schema.define(version: 20150915011643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,20 @@ ActiveRecord::Schema.define(version: 20150914164414) do
   add_index "messages", ["chat_room_id"], name: "index_messages_on_chat_room_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
+  create_table "suggestions", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "title"
+    t.float    "lat"
+    t.float    "long"
+    t.float    "rating"
+    t.string   "type"
+    t.string   "photo_req"
+    t.string   "web_url"
+    t.integer  "votes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
@@ -88,6 +102,16 @@ ActiveRecord::Schema.define(version: 20150914164414) do
     t.string   "uid"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.float    "lat"
+    t.float    "long"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "suggestion_id"
+    t.integer  "user_id"
+    t.boolean  "upvote"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
