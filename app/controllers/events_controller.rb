@@ -16,8 +16,13 @@ class EventsController < ApplicationController
     # res[:events] = events_admin
     # res[:events_pending] = events_pending
     # res[:events_attending] = events_attending
-
-    render json: Event.find_by_sql('SELECT * FROM events WHERE time > NOW() ORDER BY time - NOW()'), status: :ok
+    if params[:option] == 'time'
+      render json: Event.find_by_sql('SELECT * FROM events WHERE time > NOW() ORDER BY time - NOW()'), status: :ok
+    elsif params[:option] == 'all'
+      render json: Event.all, status: :ok
+    else
+      render nothing: true, status: 403 #check if error number should really be 403 when path on client request is unknown.
+    end
   end
 
   # GET /events/1
