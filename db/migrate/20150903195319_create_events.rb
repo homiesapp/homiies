@@ -12,7 +12,6 @@ class CreateEvents < ActiveRecord::Migration
       t.float :lat
       t.float :long
       t.string :category
-      t.integer :chatroom_id
 
       t.timestamps null: false
     end

@@ -9,13 +9,16 @@ class EventsController < ApplicationController
     res = {}
     user = User.find(params[:user_id])
 
-    events_admin = user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
-    events_pending = Invitation.where(invitee_id: user.id).where(status: 2).map { |invite| Event.find(invite.event_id) }
-    events_attending = Invitation.where(invitee_id: user.id).where(status: 1).map { |invite| Event.find(invite.event_id) }
+    events = Event.where
 
-    res[:events_admin] = events_admin
-    res[:events_pending] = events_pending
-    res[:events_attending] = events_attending
+    res[:events] = events
+    # events_admin = user.events.to_a.keep_if { |event| event.time > Time.now }.sort!
+    # events_pending = Invitation.where(invitee_id: user.id).where(status: 2).map { |invite| Event.find(invite.event_id) }
+    # events_attending = Invitation.where(invitee_id: user.id).where(status: 1).map { |invite| Event.find(invite.event_id) }
+
+    # res[:events] = events_admin
+    # res[:events_pending] = events_pending
+    # res[:events_attending] = events_attending
 
     render json: res, status: :ok
   end
@@ -36,9 +39,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
-    if @event.save
-      render json: @event.id, status: :ok
+    event = Event.new
+    if event.save
+      render json: event, status: :ok
     else
       render nothing: true, status: 403
     end
@@ -56,16 +59,14 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    binding.pry
-    puts request.method
-    @event = Event.new(event_params)
-    @event.chatroom = Chatroom.create()
+    event = Event.new(event_params)
+    event.chatroom = Chatroom.new()
 
     respond_to do |format|
-      if @event.save
-        format.json { render json: @event, status: :created }
+      if event.save
+        format.json { render json: event, status: :created }
       else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: event.errors, status: :unprocessable_entity }
       end
     end
   end
