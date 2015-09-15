@@ -2,6 +2,15 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:update, :destroy]
   before_action :set_chatroom, only: [:create]
 
+  def index
+  	chatroom = Chatroom.find(params[:chatroom_id])
+  	if chatroom
+  		render json: chatroom.messages, status: :ok
+  	else
+  		render nothing: true, status: 403	# verify if error number is correct when the event cannot be found 
+  	end
+  end
+
 	def new
 		message = Message.new
 		if message.save
@@ -14,9 +23,9 @@ class MessagesController < ApplicationController
 	def create
 		message = Message.new(message_params)
 		message.chatroom = @chatroom
-		
+
 		if message.save
-			render nothing: true, status: :ok
+			render json: message, status: :ok
 		else
 			render json: message.erros, status: :unprocessable_entity
 		end
