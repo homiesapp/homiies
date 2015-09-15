@@ -6,7 +6,7 @@ class CreateSuggestions < ActiveRecord::Migration
       t.float :lat
       t.float :long
       t.float :rating
-      t.string :type
+      t.string :type_place
       t.string :photo_req
       t.string :web_url
       t.integer :votes

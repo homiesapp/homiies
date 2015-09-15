@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20150915011643) do
     t.float    "lat"
     t.float    "long"
     t.float    "rating"
-    t.string   "type"
+    t.string   "type_place"
     t.string   "photo_req"
     t.string   "web_url"
     t.integer  "votes"

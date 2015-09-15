@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'suggestion/index'
+
   root 'users#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -6,13 +8,12 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-
-  get '/suggest', to: 'events#suggest'
-
   # resources :users
 
   resources :users do
-    resources :events
+    resources :events do
+      resources :suggestions, only: [:index]
+    end
     resources :invitations, except: [:edit, :update]
     get '/friendships' => 'friendships#homiies', path: 'homiies'
     delete '/friendships/:id' => 'friendships#destroy', path: 'homiies/:id'

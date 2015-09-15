@@ -32,7 +32,12 @@ Event.create(title: "Beers at 999", city:"Vancouver", country: "Canada", address
 Event.create(title: "Beach barbecue", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2020), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 3)
 
 Invitation.create(inviter_id: 1, invitee_id: 2, event_id: 1, status: 1)
-Invitation.create(inviter_id: 1, invitee_id: 3, event_id: 1, status: 2)
+Invitation.create(inviter_id: 1, invitee_id: 3, event_id: 1, status: 1)
+Invitation.create(inviter_id: 1, invitee_id: 4, event_id: 1, status: 1)
+Invitation.create(inviter_id: 1, invitee_id: 5, event_id: 1, status: 1)
+Invitation.create(inviter_id: 1, invitee_id: 6, event_id: 1, status: 1)
+Invitation.create(inviter_id: 1, invitee_id: 7, event_id: 1, status: 2)
+
 Invitation.create(inviter_id: 1, invitee_id: 4, event_id: 2, status: 1)
 Invitation.create(inviter_id: 2, invitee_id: 3, event_id: 4, status: 1)
 Invitation.create(inviter_id: 3, invitee_id: 1, event_id: 6, status: 1)
@@ -66,6 +71,14 @@ Message.create(chat_room_id: 1, user_id: 1, text: 'yup hope so..')
 Message.create(chat_room_id: 1, user_id: 2, text: 'great')
 Message.create(chat_room_id: 1, user_id: 1, text: 'see you there mate')
 
+
+# users = Event.find(1).invitees
+# users.each do |user|
+#   @lat += user[:lat]
+#   @long += user[:long]
+# end
+# @lat /= @users.length
+# @long /= @users.length
 @events = []
 @api_key = 'AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
 @radius = '3000'
@@ -101,10 +114,9 @@ populate_events(get_places('cafe'),7)
 @events.shuffle!
 
 @events.each do |suggestion|
-  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], rating: suggestion[:rating], type: suggestion[:type_place], web_url: suggestion[:web_url], votes: suggestion[:votes])
+  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], votes: suggestion[:votes])
 end
-
-
+#Whenever a vote goes through, suggestion.votes += 1
 
 
 
