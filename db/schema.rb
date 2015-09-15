@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20150914164414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chat_rooms", force: :cascade do |t|
+  create_table "chatrooms", force: :cascade do |t|
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "chat_rooms", ["event_id"], name: "index_chat_rooms_on_event_id", using: :btree
+  add_index "chatrooms", ["event_id"], name: "index_chatrooms_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20150914164414) do
     t.float    "lat"
     t.float    "long"
     t.string   "category"
-    t.integer  "chat_room_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "chatroom_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
 
@@ -69,14 +69,14 @@ ActiveRecord::Schema.define(version: 20150914164414) do
   add_index "invitations", ["inviter_id"], name: "index_invitations_on_inviter_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "chat_room_id"
+    t.integer  "chatroom_id"
     t.integer  "user_id"
     t.text     "text"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "messages", ["chat_room_id"], name: "index_messages_on_chat_room_id", using: :btree
+  add_index "messages", ["chatroom_id"], name: "index_messages_on_chatroom_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

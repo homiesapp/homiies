@@ -1,6 +1,6 @@
-class CreateChatRooms < ActiveRecord::Migration
+class CreateChatrooms < ActiveRecord::Migration
   def change
-    create_table :chat_rooms do |t|
+    create_table :chatrooms do |t|
     	t.integer :event_id, index: true
       t.timestamps null: false
     end

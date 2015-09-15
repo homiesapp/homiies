@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     res[:event] = @event
     res[:homiies_attending] = homiies_attending
     res[:homiies_pending] = homiies_pending
-    res[:messages] = @event.chat_room.messages
+    res[:messages] = @event.chatroom.messages
     render json: res, status: :ok
   end
 
@@ -56,12 +56,14 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    binding.pry
+    puts request.method
     @event = Event.new(event_params)
-    @event.chat_room = ChatRoom.new
+    @event.chatroom = Chatroom.create()
 
     respond_to do |format|
       if @event.save
-        format.json { render json: @event, status: :created, location: @event }
+        format.json { render json: @event, status: :created }
       else
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -73,7 +75,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.json { render json: @event, status: :ok, location: @event }
+        format.json { render json: @event, status: :ok }
       else
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -121,7 +123,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id, :chat_room_id)
+      params.require(:event).permit(:title, :city, :country, :address, :postal_code, :time, :description, :picture, :lat, :long, :category, :user_id, :chatroom_id)
     end
 end
 
