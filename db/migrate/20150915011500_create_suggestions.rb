@@ -9,7 +9,7 @@ class CreateSuggestions < ActiveRecord::Migration
       t.string :type_place
       t.string :photo_req
       t.string :web_url
-      t.integer :votes
+      t.integer :vote_counter
 
       t.timestamps null: false
     end

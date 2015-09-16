@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20150915011643) do
     t.float    "lat"
     t.float    "long"
     t.string   "category"
-    t.integer  "chatroom_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
@@ -88,9 +87,9 @@ ActiveRecord::Schema.define(version: 20150915011643) do
     t.string   "type_place"
     t.string   "photo_req"
     t.string   "web_url"
-    t.integer  "votes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "vote_counter"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

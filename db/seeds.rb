@@ -42,7 +42,7 @@ populate_events(get_places('cafe'),7)
 @events.shuffle!
 binding.pry
 @events.each do |suggestion|
-  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], votes: 0)
+  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], photo_req: suggestion[:photo_req_url], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], vote_counter: 0)
 end
 
 User.create(username: "Andrea", email: "andrea@gmail.com", lat: 49.281887, long: -123.108188)
