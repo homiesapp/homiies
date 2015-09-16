@@ -62,7 +62,7 @@ User.create(username: "Nina", email: "nina@homiies.com", lat: 49.281887, long: -
 User.create(username: "Deborah", email: "deborah@homiies.com", lat: 49.281887, long: -123.108188)
 User.create(username: "Samantha", email: "samantha@homiies.com", lat: 49.281887, long: -123.108188)
 
-Event.create(title: "Camping", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2015), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
+Event.create(title: nil, city: nil, country: nil, address: nil, postal_code: nil, time: Time.new(2015), description: nil, picture: nil, lat: nil, long: nil, category: nil, user_id: 1)
 Event.create(title: "Fiesta", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2016), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
 Event.create(title: "Birthday party", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2017), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
 Event.create(title: "Tennis game", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2018), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 2)
