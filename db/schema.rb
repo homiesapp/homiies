@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20150915011643) do
   create_table "votes", force: :cascade do |t|
     t.integer  "suggestion_id"
     t.integer  "user_id"
-    t.boolean  "upvote"
+    t.integer  "status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
