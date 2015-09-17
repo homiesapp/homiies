@@ -1,18 +1,20 @@
 class SuggestionsController < ApplicationController
   def index
-    @suggestions = Suggestion.all.where(event_id: params[:event_id])
+    binding.pry
+    @suggestions = Suggestion.all.where(event_id: params[:id])
     render json: @suggestions, status: :ok
   end
   
   def vote
     @suggestion = Suggestion.find(params[:id])
-    @vote = Vote.create(suggestion_id: @suggestion.id, user_id: params[:user_id], status: param[:status])
-    @suggestion.vote_counter += 1 if params[:status] === 1
+    @vote = Vote.create(suggestion_id: @suggestion.id, user_id: params[:user_id], status: params[:status])
+    @suggestion.vote_counter += 1 if params[:status].to_i == 1
     @suggestion.save!
     @vote.save!
 
     @event = Event.find(@suggestion.event_id)
-    num_invitees = @event.count(:invitee)
+    binding.pry
+    num_invitees = @event.invitees.length
     if @suggestion.vote_counter >= (num_invitees * 0.75) 
       @event.title = @suggestion.title
       @event.picture = @suggestion.photo_req

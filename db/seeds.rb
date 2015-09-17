@@ -40,7 +40,7 @@ populate_events(get_places('park'),5)
 populate_events(get_places('movie_theatre'),3)
 populate_events(get_places('cafe'),7)
 @events.shuffle!
-binding.pry
+# binding.pry
 @events.each do |suggestion|
   Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], photo_req: suggestion[:photo_req_url], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], vote_counter: 0)
 end

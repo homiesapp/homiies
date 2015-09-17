@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   get '/suggestions', to: 'suggestions#index' 
-  get '/suggestions/:id/vote', to: 'suggestions#vote'
+  get '/events/:id/suggestions', to: 'suggestions#index'
   get '/suggestions/:id/votes', to: 'suggestions#votes'
 
 
