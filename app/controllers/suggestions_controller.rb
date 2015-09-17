@@ -1,6 +1,11 @@
 class SuggestionsController < ApplicationController
   def index
+  
     @suggestions = Suggestion.joins(:votes).where(event_id: 1).where(:votes => {:status => 2, :user_id => params[:user_id]})
+    #for demo
+    cambie = Suggestion.new(event_id: 1, title: "Cambie Bar & Grill", lat: 49.283323, long: -123.109073, photo_req: "http://beforelastcall.ca/photo/9e9d8450-8e06-4011-9f8c-d7b275425efc/PhotoStreamLarge/cover.jpg", rating: 3.2, type_place: "Long-standing alehouse with drinks specials, pub grub & a 24-hour hostel upstairs.", web_url: "http://cambiepubs.com/", vote_counter: 0)
+    @suggestions[3]= cambie
+  
     render json: @suggestions, status: :ok
   end
   

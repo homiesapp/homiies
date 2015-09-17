@@ -8,6 +8,51 @@
 require 'open-uri'
 require 'json'
 
+@events = []
+@api_key = 'AIzaSyBwWxyoMOigF9HnykaJM_caD8NtYCGSGMc'
+@radius = '3000'
+@lat = 49.281887
+@long = -123.108188
+def populate_events(arr, num) 
+  binding.pry
+  num.times do |i|  
+  if arr['results'][i]['photos']
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{arr['results'][i]['photos'][0]['photo_reference']}&key=#{@api_key}"
+  end
+  event_details = JSON.load(open("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{arr['results'][i]['place_id']}&key=#{@api_key}"))
+  @events << {
+      title: arr['results'][i]['name'],
+      lat: arr['results'][i]['geometry']['location']['lat'],
+      long: arr['results'][i]['geometry']['location']['lng'],
+      rating: arr['results'][i]['rating'],
+      type_place: arr['results'][i]['types'][0],
+      photo_req_url: photo_url,
+      web_url: event_details['result']['website'],
+      votes: 0,
+    }   
+  end
+end
+
+def get_places(type)
+  JSON.load(open("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{@lat},#{@long}&radius=#{@radius}&types=#{type}&key=#{@api_key}"))
+end
+
+populate_events(get_places('bar'),20)
+populate_events(get_places('park'),5)
+populate_events(get_places('movie_theatre'),3)
+populate_events(get_places('cafe'),7)
+@events.shuffle!
+# binding.pry
+@events.each do |suggestion|
+  a = Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], photo_req: suggestion[:photo_req_url], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], vote_counter: 0)
+  a.save!
+  Vote.create(suggestion_id: a.id, user_id: 1, status: 2)
+  Vote.create(suggestion_id: a.id, user_id: 2, status: 2)
+  Vote.create(suggestion_id: a.id, user_id: 3, status: 2)
+  Vote.create(suggestion_id: a.id, user_id: 4, status: 2)
+end
+
+
 User.create(username: "Andrea", email: "andrea@gmail.com", lat: 49.281887, long: -123.108188)
 User.create(username: "Alex", email: "alex@homiies.com", lat: 49.281887, long: -123.108188)
 User.create(username: "Evert", email: "evert@homiies.com", lat: 49.281887, long: -123.108188)
@@ -68,50 +113,6 @@ Message.create(chatroom_id: 1, user_id: 2, text: 'you gonna get their on time?')
 Message.create(chatroom_id: 1, user_id: 1, text: 'yup hope so..')
 Message.create(chatroom_id: 1, user_id: 2, text: 'great')
 Message.create(chatroom_id: 1, user_id: 1, text: 'see you there mate')
-
-@events = []
-@api_key = 'AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
-@radius = '3000'
-@lat = 49.281887
-@long = -123.108188
-def populate_events(arr, num) 
-  num.times do |i|
-  if arr['results'][i]['photos']
-    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{arr['results'][i]['photos'][0]['photo_reference']}&key=#{@api_key}"
-  end
-  event_details = JSON.load(open("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{arr['results'][i]['place_id']}&key=#{@api_key}"))
-  @events << {
-      title: arr['results'][i]['name'],
-      lat: arr['results'][i]['geometry']['location']['lat'],
-      long: arr['results'][i]['geometry']['location']['lng'],
-      rating: arr['results'][i]['rating'],
-      type_place: arr['results'][i]['types'][0],
-      photo_req_url: photo_url,
-      web_url: event_details['result']['website'],
-      votes: 0,
-    }   
-  end
-end
-
-def get_places(type)
-  JSON.load(open("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{@lat},#{@long}&radius=#{@radius}&types=#{type}&key=#{@api_key}"))
-end
-
-populate_events(get_places('bar'),20)
-populate_events(get_places('park'),5)
-populate_events(get_places('movie_theatre'),3)
-populate_events(get_places('cafe'),7)
-@events.shuffle!
-# binding.pry
-@events.each do |suggestion|
-  a = Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], photo_req: suggestion[:photo_req_url], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], vote_counter: 0)
-  a.save!
-  Vote.create(suggestion_id: a.id, user_id: 1, status: 2)
-  Vote.create(suggestion_id: a.id, user_id: 2, status: 2)
-  Vote.create(suggestion_id: a.id, user_id: 3, status: 2)
-  Vote.create(suggestion_id: a.id, user_id: 4, status: 2)
-end
-
 
 # users = Event.find(1).invitees
 # users.each do |user|
