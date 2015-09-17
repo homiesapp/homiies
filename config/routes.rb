@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
-  get '/suggestions', to: 'suggestions#index' 
-  get '/events/:id/suggestions', to: 'suggestions#index'
-  get '/suggestions/:id/votes', to: 'suggestions#votes'
+  get '/events/:id/suggestions', to: 'suggestions#index' #params[:user_id]
+  get '/events/:id/suggestions/:id', to: 'suggestions#vote' #Make a vote params[:status], params[:user_id]
+  get '/events/:id/votes', to: 'suggestions#votes_index' #get all votes for that event.
 
 
   resources :users do
@@ -76,3 +76,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+
+
+
+
+
+#RETURN [{suggestion_id: 1, 
+        # results: [user_id:1,status:0]}] etc...
+
+

@@ -7,6 +7,68 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'open-uri'
 require 'json'
+
+User.create(username: "Andrea", email: "andrea@gmail.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Alex", email: "alex@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Evert", email: "evert@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Tim", email: "tim@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Steph", email: "steph@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Bryan", email: "bryan@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Bob", email: "bob@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Joe", email: "joe@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Mich", email: "mich@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Mick", email: "mick@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Amanda", email: "amanda@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Georgia", email: "georgia@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Tara", email: "tara@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Nina", email: "nina@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Deborah", email: "deborah@homiies.com", lat: 49.281887, long: -123.108188)
+User.create(username: "Samantha", email: "samantha@homiies.com", lat: 49.281887, long: -123.108188)
+
+Event.create(title: nil, city: nil, country: nil, address: nil, postal_code: nil, time: Time.new(2015), description: nil, picture: nil, lat: nil, long: nil, category: nil, user_id: 1)
+Event.create(title: "Fiesta", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2016), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
+Event.create(title: "Birthday party", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2017), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
+Event.create(title: "Tennis game", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2018), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 2)
+Event.create(title: "Beers at 999", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2019), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 2)
+Event.create(title: "Beach barbecue", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2020), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 3)
+
+Invitation.create(inviter_id: 1, invitee_id: 2, event_id: 1, status: 1)
+Invitation.create(inviter_id: 1, invitee_id: 3, event_id: 1, status: 1)
+Invitation.create(inviter_id: 1, invitee_id: 4, event_id: 1, status: 1)
+
+Invitation.create(inviter_id: 1, invitee_id: 4, event_id: 2, status: 1)
+Invitation.create(inviter_id: 2, invitee_id: 3, event_id: 4, status: 1)
+Invitation.create(inviter_id: 3, invitee_id: 1, event_id: 6, status: 1)
+Invitation.create(inviter_id: 2, invitee_id: 1, event_id: 5, status: 2)
+
+Friendship.create(user_id: 1, homiie_id: 2)
+Friendship.create(user_id: 1, homiie_id: 3)
+Friendship.create(user_id: 1, homiie_id: 4)
+Friendship.create(user_id: 2, homiie_id: 3)
+Friendship.create(user_id: 1, homiie_id: 5)
+Friendship.create(user_id: 1, homiie_id: 6)
+Friendship.create(user_id: 1, homiie_id: 7)
+Friendship.create(user_id: 1, homiie_id: 8)
+Friendship.create(user_id: 1, homiie_id: 9)
+Friendship.create(user_id: 1, homiie_id: 10)
+Friendship.create(user_id: 1, homiie_id: 11)
+Friendship.create(user_id: 1, homiie_id: 12)
+Friendship.create(user_id: 1, homiie_id: 13)
+Friendship.create(user_id: 1, homiie_id: 14)
+Friendship.create(user_id: 1, homiie_id: 15)
+
+Chatroom.create(event_id: 1)
+
+Message.create(chatroom_id: 1, user_id: 1, text: 'Hi')
+Message.create(chatroom_id: 1, user_id: 2, text: 'Hey, how are you?')
+Message.create(chatroom_id: 1, user_id: 1, text: 'good, yourself?')
+Message.create(chatroom_id: 1, user_id: 2, text: 'Good! Cannot wait to go to that bar!')
+Message.create(chatroom_id: 1, user_id: 1, text: 'yea me neither, love their specials')
+Message.create(chatroom_id: 1, user_id: 2, text: 'you gonna get their on time?')
+Message.create(chatroom_id: 1, user_id: 1, text: 'yup hope so..')
+Message.create(chatroom_id: 1, user_id: 2, text: 'great')
+Message.create(chatroom_id: 1, user_id: 1, text: 'see you there mate')
+
 @events = []
 @api_key = 'AIzaSyCu_MX9ojL43aD69qCc8KdRri3QgQCe6fY'
 @radius = '3000'
@@ -42,72 +104,13 @@ populate_events(get_places('cafe'),7)
 @events.shuffle!
 # binding.pry
 @events.each do |suggestion|
-  Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], photo_req: suggestion[:photo_req_url], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], vote_counter: 0)
+  a = Suggestion.create(event_id: 1, title: suggestion[:title], lat: suggestion[:lat], long: suggestion[:long], photo_req: suggestion[:photo_req_url], rating: suggestion[:rating], type_place: suggestion[:type_place], web_url: suggestion[:web_url], vote_counter: 0)
+  a.save!
+  Vote.create(suggestion_id: a.id, user_id: 1, status: 2)
+  Vote.create(suggestion_id: a.id, user_id: 2, status: 2)
+  Vote.create(suggestion_id: a.id, user_id: 3, status: 2)
+  Vote.create(suggestion_id: a.id, user_id: 4, status: 2)
 end
-
-User.create(username: "Andrea", email: "andrea@gmail.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Alex", email: "alex@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Evert", email: "evert@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Tim", email: "tim@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Steph", email: "steph@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Bryan", email: "bryan@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Bob", email: "bob@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Joe", email: "joe@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Mich", email: "mich@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Mick", email: "mick@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Amanda", email: "amanda@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Georgia", email: "georgia@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Tara", email: "tara@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Nina", email: "nina@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Deborah", email: "deborah@homiies.com", lat: 49.281887, long: -123.108188)
-User.create(username: "Samantha", email: "samantha@homiies.com", lat: 49.281887, long: -123.108188)
-
-Event.create(title: nil, city: nil, country: nil, address: nil, postal_code: nil, time: Time.new(2015), description: nil, picture: nil, lat: nil, long: nil, category: nil, user_id: 1)
-Event.create(title: "Fiesta", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2016), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
-Event.create(title: "Birthday party", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2017), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 1)
-Event.create(title: "Tennis game", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2018), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 2)
-Event.create(title: "Beers at 999", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2019), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 2)
-Event.create(title: "Beach barbecue", city:"Vancouver", country: "Canada", address:"233 Robson St.", postal_code: "V16T4B", time: Time.new(2020), description: "Party at Alex's!", picture: "0000010f0003930qls00eitj01abc02", lat: 49.25, long: -123.01, category: "dancing", user_id: 3)
-
-Invitation.create(inviter_id: 1, invitee_id: 2, event_id: 1, status: 1)
-Invitation.create(inviter_id: 1, invitee_id: 3, event_id: 1, status: 1)
-Invitation.create(inviter_id: 1, invitee_id: 4, event_id: 1, status: 1)
-Invitation.create(inviter_id: 1, invitee_id: 5, event_id: 1, status: 1)
-Invitation.create(inviter_id: 1, invitee_id: 6, event_id: 1, status: 1)
-Invitation.create(inviter_id: 1, invitee_id: 7, event_id: 1, status: 2)
-
-Invitation.create(inviter_id: 1, invitee_id: 4, event_id: 2, status: 1)
-Invitation.create(inviter_id: 2, invitee_id: 3, event_id: 4, status: 1)
-Invitation.create(inviter_id: 3, invitee_id: 1, event_id: 6, status: 1)
-Invitation.create(inviter_id: 2, invitee_id: 1, event_id: 5, status: 2)
-
-Friendship.create(user_id: 1, homiie_id: 2)
-Friendship.create(user_id: 1, homiie_id: 3)
-Friendship.create(user_id: 1, homiie_id: 4)
-Friendship.create(user_id: 2, homiie_id: 3)
-Friendship.create(user_id: 1, homiie_id: 5)
-Friendship.create(user_id: 1, homiie_id: 6)
-Friendship.create(user_id: 1, homiie_id: 7)
-Friendship.create(user_id: 1, homiie_id: 8)
-Friendship.create(user_id: 1, homiie_id: 9)
-Friendship.create(user_id: 1, homiie_id: 10)
-Friendship.create(user_id: 1, homiie_id: 11)
-Friendship.create(user_id: 1, homiie_id: 12)
-Friendship.create(user_id: 1, homiie_id: 13)
-Friendship.create(user_id: 1, homiie_id: 14)
-Friendship.create(user_id: 1, homiie_id: 15)
-
-Chatroom.create(event_id: 1)
-
-Message.create(chatroom_id: 1, user_id: 1, text: 'Hi')
-Message.create(chatroom_id: 1, user_id: 2, text: 'Hey, how are you?')
-Message.create(chatroom_id: 1, user_id: 1, text: 'good, yourself?')
-Message.create(chatroom_id: 1, user_id: 2, text: 'Good! Cannot wait to go to that bar!')
-Message.create(chatroom_id: 1, user_id: 1, text: 'yea me neither, love their specials')
-Message.create(chatroom_id: 1, user_id: 2, text: 'you gonna get their on time?')
-Message.create(chatroom_id: 1, user_id: 1, text: 'yup hope so..')
-Message.create(chatroom_id: 1, user_id: 2, text: 'great')
-Message.create(chatroom_id: 1, user_id: 1, text: 'see you there mate')
 
 
 # users = Event.find(1).invitees
